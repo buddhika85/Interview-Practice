@@ -8,7 +8,24 @@ internal class Program
         WriteLine("Testing Answers \n");        
         // Q1();
         // Q2();
-        Q3();
+        // Q3();
+        Q4();
+    }
+
+    private static void Q4()
+    {
+        var competition = new List<List<String>> 
+        {
+            new List<string> { "HTML", "C#"},
+            new List<string> { "C#", "Python"},
+            new List<string> { "Python", "HTML"},
+        };
+        var results = new List<int> 
+        {
+            0, 0, 1
+        };
+
+        WriteLine(new Q4TournamentWinner().TournamentWinner(competition, results));
     }
 
     private static void Q3()
