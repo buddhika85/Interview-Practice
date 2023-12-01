@@ -1,7 +1,9 @@
-﻿
-//using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Answers
+namespace C_Sharp.Answers
 {
     public class Q1TwoSumNum
     {
