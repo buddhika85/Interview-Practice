@@ -6,8 +6,21 @@ internal class Program
     private static void Main(string[] args)
     {
         WriteLine("Testing Answers \n");        
-        Q1();
-        Q2();
+        // Q1();
+        // Q2();
+        Q3();
+    }
+
+    private static void Q3()
+    {
+        var inputArray = new[] { -5,-1,0,1,2};
+        var result = new Q3SortedSquared().SortedSquaredArray(inputArray);
+        WriteLine($"{string.Join("|", result)}");
+
+
+        inputArray = new[] { 1,2,3,4};
+        result = new Q3SortedSquared().SortedSquaredArray(inputArray);
+        WriteLine($"{string.Join("|", result)}");
     }
 
     private static void Q1()
