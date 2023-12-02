@@ -9,7 +9,23 @@ internal class Program
         // Q1();
         // Q2();
         // Q3();
-        Q4();
+        // Q4();
+        Q5();
+    }
+
+    private static void Q5()
+    {
+        var input = new int[] {1,2,5};
+        WriteLine($"{new Q5NonConstructableChange().NonConstructibleChange(input) == 4}");
+
+        input = new int[] {1,10};
+        WriteLine($"{new Q5NonConstructableChange().NonConstructibleChange(input) == 2}");
+
+        input = new int[] {5,7,1,1,2,3,22};
+        WriteLine($"{new Q5NonConstructableChange().NonConstructibleChange(input) == 20}");
+
+        input = new int[] {1, 1, 1, 1, 1};
+        WriteLine($"{new Q5NonConstructableChange().NonConstructibleChange(input) == 6}");
     }
 
     private static void Q4()
