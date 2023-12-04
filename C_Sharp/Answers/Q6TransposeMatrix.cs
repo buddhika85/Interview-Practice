@@ -26,7 +26,6 @@ namespace C_Sharp.Answers
                     result[newRow, newCol] = twoDArray[row, col];
                 }
             }
-
             return result;
         }
     }
