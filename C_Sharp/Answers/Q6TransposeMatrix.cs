@@ -7,6 +7,8 @@ namespace C_Sharp.Answers
 {
     public class Q6TransposeMatrix
     {
+        // Time - O(n^2)
+        // Space - O(n)
         public int[,] TransposeMatrix(int[,] twoDArray)
         {
             var result = new int[twoDArray.GetLength(1), twoDArray.GetLength(0)];

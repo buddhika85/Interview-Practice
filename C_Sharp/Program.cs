@@ -11,26 +11,51 @@ internal class Program
         // Q3();
         // Q4();
         // Q5();
-        Q6();
+        // Q6();
+        // Q7();
+        Q25();
+    }
+
+    private static void Q25()
+    {
+        WriteLine($"{Q25PalindromeCheck.IsPalindrome("abcdcba")}");
+        WriteLine($"{Q25PalindromeCheck.IsPalindrome("a")}");
+        //WriteLine($"{Q25PalindromeCheck.IsPalindrome("malayalam")}");
+        WriteLine($"{Q25PalindromeCheck.IsPalindrome("xy")}");
+        WriteLine($"{Q25PalindromeCheck.IsPalindrome("xyx")}");
+    }
+
+    private static void Q7()
+    {
+        var root = new BST(10);
+        root.left = new BST(5);
+        root.left.left = new BST(2);
+        root.left.left.left = new BST(1);
+        root.left.right = new BST(5);
+        root.right = new BST(15);
+        root.right.left = new BST(13);
+        root.right.left.right = new BST(14);
+        root.right.right = new BST(22);
+        WriteLine($"{Q7ClosestValueInBst.FindClosestValueInBst(root, 12)}");
     }
 
     private static void Q6()
     {
-        var twoDArrays = new List<int[,]> 
+        var twoDArrays = new List<int[,]>
         {
-            new int[,] 
+            new int[,]
             {
                 {1,2},
                 {3,4},
                 {5,6}
             },
-            new int[,] 
+            new int[,]
             {
                 {1,2,3},
                 {4,5,6},
                 {7,8,9}
             },
-            new int[,] 
+            new int[,]
             {
                 {1,2}
             },
