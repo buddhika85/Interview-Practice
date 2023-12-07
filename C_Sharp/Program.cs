@@ -13,7 +13,21 @@ internal class Program
         // Q5();
         // Q6();
         // Q7();
-        Q25();
+        // Q25();
+        Q20();
+    }
+
+    private static void Q20()
+    {
+        // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {0,1,21,33,45,45,61,71,72,73}, 33) == 3}");
+        // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {-5,0,1,21,33,45,45,61,71,72,73}, 33) == 4}");
+        // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {1}, 1) == 0}");
+        // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {1}, 2) == -1}");
+
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {0,1,21,33,45,45,61,71,72,73}, 33) == 3}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {-5,0,1,21,33,45,45,61,71,72,73}, 33) == 4}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {1}, 1) == 0}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {1}, 2) == -1}");
     }
 
     private static void Q25()
