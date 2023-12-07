@@ -1,5 +1,6 @@
 ﻿using C_Sharp.Answers;
 using static System.Console;
+using C_Sharp.Answers.Extensions;
 
 internal class Program
 {
@@ -14,7 +15,24 @@ internal class Program
         // Q6();
         // Q7();
         // Q25();
-        Q20();
+        // Q20();
+        Q23();
+    }
+
+    private static void Q23()
+    {
+        var data = new List<int[]> 
+        {
+            new [] {1},
+            new [] {1,0-1},
+            new [] {1,0,-2,-1},
+            new [] {1,0,10,10-2,-1},
+            new [] {8,5,2,9,5,6,3},
+        };
+        foreach (var item in data)
+        {
+            WriteLine($"{item.Display(",")} => {Q23BubbleSort.BubbleSort(item).Display(",")}");
+        }
     }
 
     private static void Q20()
