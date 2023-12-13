@@ -16,12 +16,30 @@ internal class Program
         // Q7();
         // Q25();
         // Q20();
-        Q23();
+        Q21();
+        // Q23();
+    }
+
+    private static void Q21()
+    {
+        var data = new List<int[]>
+        {
+            new [] {1},
+            new [] {1,0-1},
+            new [] {2,0,1},
+            new [] {1,0,-2,-1},
+            new [] {1,0,10,10-2,-1},
+            new [] {8,5,2,9,5,6,3},
+        };
+        foreach (var item in data)
+        {
+            WriteLine($"{item.Display(",")} => {Q21InsertionSort.InsertionSort(item).Display(",")}");
+        }
     }
 
     private static void Q23()
     {
-        var data = new List<int[]> 
+        var data = new List<int[]>
         {
             new [] {1},
             new [] {1,0-1},
@@ -42,10 +60,10 @@ internal class Program
         // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {1}, 1) == 0}");
         // WriteLine($"{Q20BinarySearch.BinarySearch(new int[] {1}, 2) == -1}");
 
-        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {0,1,21,33,45,45,61,71,72,73}, 33) == 3}");
-        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {-5,0,1,21,33,45,45,61,71,72,73}, 33) == 4}");
-        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {1}, 1) == 0}");
-        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] {1}, 2) == -1}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] { 0, 1, 21, 33, 45, 45, 61, 71, 72, 73 }, 33) == 3}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] { -5, 0, 1, 21, 33, 45, 45, 61, 71, 72, 73 }, 33) == 4}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] { 1 }, 1) == 0}");
+        WriteLine($"{Q20BinarySearch.BinarySearchRecursive(new int[] { 1 }, 2) == -1}");
     }
 
     private static void Q25()
