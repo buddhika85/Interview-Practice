@@ -1,3 +1,4 @@
+
 namespace C_Sharp.Answers.Bst
 {
     public class BST
@@ -52,13 +53,85 @@ namespace C_Sharp.Answers.Bst
             return false;
         }
 
+        // 1 leaf node removal
+        // 2 node with 2 child removal
+        // 3 node with one child removal
         public BST Remove(int value)
         {
             if (IsSingleNodeTree())
                 return this;
+
+            BST parent = null!;
+            var current = this;
+            var removed = false;
+            while(!removed && current != null)
+            {
+                if (value < current.value)
+                {
+                    // go left
+                    parent = current;
+                    current = current.left;
+                }
+                else if (value > current.value)
+                {
+                    // go right
+                    parent = current;
+                    current = current.right;
+                }
+                else
+                {
+                    // found the value
+                    if (current.left == null && current.right == null)
+                    {
+                        // 1 leaf node removal
+                        if (current == parent.left)
+                        {
+                            parent.left = null;
+                            removed = true;
+                        }
+                        else
+                        {
+                            parent.right = null;
+                            removed = true;
+                        }
+                    } 
+                    else if (current.left != null && current.right != null)
+                    {
+                        // 2 node with 2 child removal
+                        var minOfRight = FindMin(current.right);
+                        current.value = minOfRight;
+                        // remove minRight leaf node from right sub tree
+                        current.right.Remove(minOfRight);
+                        removed = true;
+                    }
+                    else
+                    {
+                        // 3 node with one child removal
+                        if (current == parent.left)
+                        {
+                            parent.left = current.left != null ? current.left : current.right;
+                            removed = true;
+                        }
+                        else
+                        {
+                            // current is parents right 
+                            parent.right = current.left != null ? current.left : current.right;
+                            removed = true;
+                        }
+                    }
+                }
+            }
             
-            // To Do
             return this;
+        }
+
+        private int FindMin(BST tree)
+        {
+            while(tree.left != null)
+            {
+                tree = tree.left;
+            }
+            return tree.value;
         }
 
         private bool IsSingleNodeTree()
