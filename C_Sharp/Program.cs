@@ -33,15 +33,36 @@ internal class Program
         }
         WriteLine("Insertion Complete");
 
-        foreach (var item in nums)
-        {
-            WriteLine($"{item} found => {(bst.Contains(item) ? "Yes" : "No")}");
-        }
+        // found cases
+        // foreach (var item in nums)
+        // {
+        //     WriteLine($"{item} found => {(bst.Contains(item) ? "Yes" : "No")}");
+        // }
 
         // not found cases
-        WriteLine($"{0} found => {(bst.Contains(0) ? "Yes" : "No")}");
-        WriteLine($"{-1} found => {(bst.Contains(-1) ? "Yes" : "No")}");
-        WriteLine($"{100} found => {(bst.Contains(100) ? "Yes" : "No")}");
+        // WriteLine($"{0} found => {(bst.Contains(0) ? "Yes" : "No")}");
+        // WriteLine($"{-1} found => {(bst.Contains(-1) ? "Yes" : "No")}");
+        // WriteLine($"{100} found => {(bst.Contains(100) ? "Yes" : "No")}");
+
+        // removal of root
+        //bst.Remove(10);
+        //WriteLine($"{10} found => {(bst.Contains(10) ? "Yes" : "No")}");            // works
+
+        // removal of a leaf right
+        // bst.Remove(14);
+        // WriteLine($"{14} found => {(bst.Contains(14) ? "Yes" : "No")}");                // works
+
+        // // removal of a leaf left
+        // bst.Remove(1);
+        // WriteLine($"{1} found => {(bst.Contains(1) ? "Yes" : "No")}");                  // works
+
+        // removal of a node with one child - left
+        bst.Remove(2);
+        WriteLine($"{2} found => {(bst.Contains(2) ? "Yes" : "No")}");                // works
+
+        // removal of a node with one child - right
+        bst.Remove(13);
+        WriteLine($"{13} found => {(bst.Contains(13) ? "Yes" : "No")}");                // works
     }
 
     private static void Q21()
