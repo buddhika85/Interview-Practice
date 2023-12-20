@@ -16,8 +16,25 @@ internal class Program
         // Q7();
         // Q25();
         // Q20();
-        Q21();
+        // Q21();
         // Q23();
+
+        // BST 
+        BstConstructionTests();
+    }
+
+    private static void BstConstructionTests()
+    {
+        C_Sharp.Answers.Bst.BST bst = new(10);
+        bst.Insert(5);
+        bst.Insert(15);
+        bst.Insert(2);
+        bst.Insert(5);
+        bst.Insert(13);
+        bst.Insert(22);
+        bst.Insert(1);
+        bst.Insert(14);
+        WriteLine("Insertion Complete");
     }
 
     private static void Q21()
