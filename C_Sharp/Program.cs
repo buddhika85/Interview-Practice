@@ -25,16 +25,23 @@ internal class Program
 
     private static void BstConstructionTests()
     {
+        var nums = new[] { 5, 15, 2, 5, 13, 22, 1, 14 };
         C_Sharp.Answers.Bst.BST bst = new(10);
-        bst.Insert(5);
-        bst.Insert(15);
-        bst.Insert(2);
-        bst.Insert(5);
-        bst.Insert(13);
-        bst.Insert(22);
-        bst.Insert(1);
-        bst.Insert(14);
+        foreach (var item in nums)
+        {
+            bst.Insert(item);
+        }
         WriteLine("Insertion Complete");
+
+        foreach (var item in nums)
+        {
+            WriteLine($"{item} found => {(bst.Contains(item) ? "Yes" : "No")}");
+        }
+
+        // not found cases
+        WriteLine($"{0} found => {(bst.Contains(0) ? "Yes" : "No")}");
+        WriteLine($"{-1} found => {(bst.Contains(-1) ? "Yes" : "No")}");
+        WriteLine($"{100} found => {(bst.Contains(100) ? "Yes" : "No")}");
     }
 
     private static void Q21()
