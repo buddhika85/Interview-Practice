@@ -134,6 +134,7 @@ namespace C_Sharp.Answers.Bst
             return tree.value;
         }
 
+        // check if its a single node tree
         private bool IsSingleNodeTree()
         {
             return left == null && right == null;
