@@ -20,20 +20,32 @@ internal class Program
         // Q21();
         // Q23();
 
-        ThreeNumberSumTest();
+        //ThreeNumberSumTestNotOptimal();
+        ThreeNumberSumTestOptimal();
 
         // BST - To Do
         //BstConstructionTests();
     }
 
+    private static void ThreeNumberSumTestOptimal()
+    {
+        var array = new int[] { 12, 3, 1, 2, -6, 5, -8, 6 };
+        var targetSum = 0;
+        var results = QThreeNumberSumOptimal.ThreeNumberSum(array, targetSum);
+        foreach (var item in results)
+        {
+            WriteLine($"{item?.Display(",")}\n");
+        }
+    }
+
     // [12, 3, 1, 2, -6, 5, -8, 6]
     // target Sum = 0
     // [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]
-    private static void ThreeNumberSumTest()
+    private static void ThreeNumberSumTestNotOptimal()
     {
-        var array = new int[] {12, 3, 1, 2, -6, 5, -8, 6};
+        var array = new int[] { 12, 3, 1, 2, -6, 5, -8, 6 };
         var targetSum = 0;
-        var results = QThreeNumberSum.ThreeNumberSum(array, targetSum);
+        var results = QThreeNumberSumWithTreeLoops.ThreeNumberSum(array, targetSum);
         foreach (var item in results)
         {
             WriteLine($"{item?.Display(",")}\n");

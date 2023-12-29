@@ -4,7 +4,7 @@
 
 namespace C_Sharp.Answers.Arrays
 {
-    public static class QThreeNumberSum
+    public static class QThreeNumberSumWithTreeLoops
     {
         // [12, 3, 1, 2, -6, 5, -8, 6]
         // target Sum = 0
