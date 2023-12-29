@@ -1,6 +1,7 @@
 ﻿using C_Sharp.Answers;
 using static System.Console;
 using C_Sharp.Answers.Extensions;
+using C_Sharp.Answers.Arrays;
 
 internal class Program
 {
@@ -19,8 +20,24 @@ internal class Program
         // Q21();
         // Q23();
 
+        ThreeNumberSumTest();
+
         // BST - To Do
-        BstConstructionTests();
+        //BstConstructionTests();
+    }
+
+    // [12, 3, 1, 2, -6, 5, -8, 6]
+    // target Sum = 0
+    // [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]
+    private static void ThreeNumberSumTest()
+    {
+        var array = new int[] {12, 3, 1, 2, -6, 5, -8, 6};
+        var targetSum = 0;
+        var results = QThreeNumberSum.ThreeNumberSum(array, targetSum);
+        foreach (var item in results)
+        {
+            WriteLine($"{item?.Display(",")}\n");
+        }
     }
 
     private static void BstConstructionTests()
