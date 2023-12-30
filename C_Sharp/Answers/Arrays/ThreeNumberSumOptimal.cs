@@ -8,8 +8,7 @@ namespace C_Sharp.Answers.Arrays
 
             // sort the array
             Array.Sort(array);
-           
-            for (var i = 0; i < array.Length; i++)
+            for (var i = 0; i < array.Length - 2; i++)          // why -2 => we need to have 2 elements to right of the i always
             {
                 var left = i + 1;
                 var right = array.Length - 1;

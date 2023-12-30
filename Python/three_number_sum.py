@@ -2,7 +2,7 @@ def threeNumberSum(array, targetSum):
     triplets = []
     array.sort()
     i = 0
-    while i < len(array):   
+    while i < len(array) - 2:   # current, left, right => we need to have 2 elements to right of current always
         left = i + 1
         right = len(array) - 1
         while left < right:
