@@ -11,5 +11,10 @@ namespace C_Sharp.Answers.Extensions
         {
             return string.Join(delimeter, array);
         }
+
+        public static string BoolYesNo(this bool value)
+        {
+            return value ? "yes" : "no";
+        }
     }
 }

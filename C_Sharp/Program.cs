@@ -23,8 +23,51 @@ internal class Program
         //ThreeNumberSumTestNotOptimal();
         //ThreeNumberSumTestOptimal();
 
+        TestMonotonic();
+
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestMonotonic()
+    {
+        List<int[]> monotonics = new List<int[]> {
+            new int[] {},
+            new int[] {1},
+            new int[] {1, 2, 2, 3, 5},
+            new int[] {7, 5, 4, 3, 1},
+            new int[] {2, 4, 6, 8, 10},
+            new int[] {9, 7, 5, 3, 1},
+            new int[] {1, 2, 2, 3, 5, 6},
+            new int[] {7, 5, 4, 3, 1, -10},
+            new int[] {2, 4, 6, 8, 10, 20},
+            new int[] {9, 7, 5, 3, 1, -100},
+            new int[] {-1, -5, -10, -1100, -1100, -1101, -9001}
+        };
+        WriteLine("Monotonics");
+        foreach (var item in monotonics)
+        {
+            WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+        }
+
+        List<int[]> nonMonotonics = new List<int[]> {
+            new int[] {-1,-2, 1},
+            new int[] {1,100,0},
+            new int[] {1, 2, 2, 3, 5, 0},
+            new int[] {7, 5, 4, 3, 1, 1000},
+            new int[] {2, 4, 6, 8, 10, -10},
+            new int[] {9, 7, 5, 3, 1, 100},
+            new int[] {1, 2, 2, 3, 5, 6, 0},
+            new int[] {7, 5, 4, 3, 1, -10, 11},
+            new int[] {2, 4, 6, 8, 10, 20, -21},
+            new int[] {9, 7, 5, 3, 1, -100, 101},
+            new int[] {-1, -5, -10, -1100, -1100, -1101, -9001, 9001}
+        };
+        WriteLine("\nNon Monotonics");
+        foreach (var item in nonMonotonics)
+        {
+            WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+        }
     }
 
     private static void ThreeNumberSumTestOptimal()
