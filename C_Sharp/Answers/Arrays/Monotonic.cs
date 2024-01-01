@@ -32,19 +32,19 @@ namespace C_Sharp.Answers.Arrays
             {
                 if (monotonicDirection == MonotonicDirection.DontKnow)
                     monotonicDirection = array[i] == array[i + 1] ? MonotonicDirection.DontKnow : 
-                        array[i] < array[i + 1] ? MonotonicDirection.Increaase : MonotonicDirection.Decrease;
-                else if (monotonicDirection == MonotonicDirection.Increaase && array[i] > array[i + 1])
+                        array[i] < array[i + 1] ? MonotonicDirection.Increase : MonotonicDirection.Decrease;
+                else if (monotonicDirection == MonotonicDirection.Increase && array[i] > array[i + 1])
                     return false;           // we expected to increase, but did not
                 else if (monotonicDirection == MonotonicDirection.Decrease && array[i] < array[i + 1])
                     return false;           // we expected to decrease, but did not
             }
-            return monotonicDirection != MonotonicDirection.DontKnow;
+            return true;
         }
 
         enum MonotonicDirection
         {
             DontKnow,
-            Increaase,
+            Increase,
             Decrease
         }
     }

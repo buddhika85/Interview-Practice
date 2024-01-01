@@ -42,7 +42,8 @@ internal class Program
             new int[] {7, 5, 4, 3, 1, -10},
             new int[] {2, 4, 6, 8, 10, 20},
             new int[] {9, 7, 5, 3, 1, -100},
-            new int[] {-1, -5, -10, -1100, -1100, -1101, -9001}
+            new int[] {-1, -5, -10, -1100, -1100, -1101, -9001},
+            new int[] {-1, -1, -1, -1, -1, -1, -1, -1}
         };
         WriteLine("Monotonics");
         foreach (var item in monotonics)
