@@ -21,7 +21,7 @@ internal class Program
         // Q23();
 
         //ThreeNumberSumTestNotOptimal();
-        ThreeNumberSumTestOptimal();
+        //ThreeNumberSumTestOptimal();
 
         // BST - To Do
         //BstConstructionTests();
