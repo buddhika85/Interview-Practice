@@ -48,7 +48,8 @@ internal class Program
         WriteLine("Monotonics");
         foreach (var item in monotonics)
         {
-            WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+            // WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+            WriteLine($"{Monotonic.IsMonotonicSolTwo(item).BoolYesNo()}");
         }
 
         List<int[]> nonMonotonics = new List<int[]> {
@@ -67,7 +68,8 @@ internal class Program
         WriteLine("\nNon Monotonics");
         foreach (var item in nonMonotonics)
         {
-            WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+            //WriteLine($"{Monotonic.IsMonotonic(item).BoolYesNo()}");
+            WriteLine($"{Monotonic.IsMonotonicSolTwo(item).BoolYesNo()}");
         }
     }
 

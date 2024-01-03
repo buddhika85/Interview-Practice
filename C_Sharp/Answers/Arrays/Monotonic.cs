@@ -24,14 +24,15 @@ namespace C_Sharp.Answers.Arrays
         //     return isIncreasing != null;
         // }
 
-        public static bool IsMonotonic(int[] array) {
+        public static bool IsMonotonic(int[] array)
+        {
             if (array.Length <= 1)
                 return true;
             MonotonicDirection monotonicDirection = MonotonicDirection.DontKnow;      // do not know
             for (int i = 0; i < array.Length - 1; i++)
             {
                 if (monotonicDirection == MonotonicDirection.DontKnow)
-                    monotonicDirection = array[i] == array[i + 1] ? MonotonicDirection.DontKnow : 
+                    monotonicDirection = array[i] == array[i + 1] ? MonotonicDirection.DontKnow :
                         array[i] < array[i + 1] ? MonotonicDirection.Increase : MonotonicDirection.Decrease;
                 else if (monotonicDirection == MonotonicDirection.Increase && array[i] > array[i + 1])
                     return false;           // we expected to increase, but did not
@@ -46,6 +47,17 @@ namespace C_Sharp.Answers.Arrays
             DontKnow,
             Increase,
             Decrease
+        }
+
+        public static bool IsMonotonicSolTwo(int[] array)
+        {
+            bool isIncreasing = true, isDecreasing = true;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                isIncreasing = isIncreasing && array[i] <= array[i + 1];
+                isDecreasing = isDecreasing && array[i] >= array[i + 1];
+            }
+            return isIncreasing || isDecreasing;
         }
     }
 }
