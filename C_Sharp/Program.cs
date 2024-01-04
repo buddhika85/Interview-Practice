@@ -2,6 +2,8 @@
 using static System.Console;
 using C_Sharp.Answers.Extensions;
 using C_Sharp.Answers.Arrays;
+using C_Sharp.Answers.Recursion;
+using C_Sharp.Answers.Strings;
 
 internal class Program
 {
@@ -24,10 +26,28 @@ internal class Program
         //ThreeNumberSumTestOptimal();
 
         //TestMonotonic();
-        TestSmallestDifference();
+        //TestSmallestDifference();
+
+        //TestRecursionFibonacci();
+        TestCommonCharacters();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestCommonCharacters()
+    {
+        var strings = new string[] {"abc", "bcd", "cbaccd"};
+        WriteLine($"Commons: {CommonCharFinder.CommonCharacters(strings).Display(", ")}");
+    }
+
+    private static void TestRecursionFibonacci()
+    {
+        var result = new int[] {0, 1, 1, 2, 3, 5, 8, 13, 21, 34};
+        for (var i = 0; i < result.Length; i++)
+        {
+            WriteLine($"{result[i] == Fibonacci.GetNthFib(i + 1)}");
+        }
     }
 
     private static void TestSmallestDifference()
