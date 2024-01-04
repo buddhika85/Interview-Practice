@@ -20,10 +20,27 @@ namespace C_Sharp.Answers.Strings
                     if (!strings[j].Contains(character))
                         isCommon = false;
                 }
-                if (isCommon)
+                if (isCommon && !commons.Contains(character.ToString()))
                     commons.Add(character.ToString());
             }
             return commons.ToArray();
+        }
+
+        public static string[] CommonCharactersSolTwo(string[] strings)
+        {
+            var commons = new HashSet<char>();
+            var orderedByLength = strings.OrderBy(x => x.Length);
+            var smallest = orderedByLength.First();
+            smallest.ToList().ForEach(x => commons.Add(x));
+            orderedByLength.SkipWhile(x => x == smallest).ToList().ForEach(x => {
+                foreach (var commonItemSoFar in commons)
+                    if (!x.Contains(commonItemSoFar))
+                        commons.Remove(commonItemSoFar);
+            });
+            var list = new List<string>();
+            foreach (var common in commons)
+                list.Add(common.ToString());
+            return list.ToArray();
         }
     }
 }
