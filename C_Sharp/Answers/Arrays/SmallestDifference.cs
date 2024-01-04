@@ -14,45 +14,31 @@ namespace C_Sharp.Answers.Arrays
             var arrayOnePointer = 0;
             var arrayTwoPointer = 0;
             var result = new int[2];
-            var difference = -1;            // still unknown
-
+            var difference = int.MaxValue;            // still unknown
 
             while (arrayOnePointer < arrayOne.Length && arrayTwoPointer < arrayTwo.Length)
             {
-                var currDifference = Math.Abs(arrayOne[arrayOnePointer] - arrayTwo[arrayTwoPointer]);
+                var numOne = arrayOne[arrayOnePointer];
+                var numTwo = arrayTwo[arrayTwoPointer];
+                var currDifference = Math.Abs(numOne - numTwo);
                 // update if currDifference closer to zero
-                if (difference == -1 || currDifference < difference)
+                if (currDifference < difference)
                 {
                     difference = currDifference;
-                    result[0] = arrayOne[arrayOnePointer];
-                    result[1] = arrayTwo[arrayTwoPointer];
+                    result[0] = numOne;
+                    result[1] = numTwo;
                 }
 
                 if (difference == 0)
                     return result;
 
                 // take smallest and move its array index forward
-                if (arrayOne[arrayOnePointer] < arrayTwo[arrayTwoPointer])
-                {
-                    if (arrayOnePointer < arrayOne.Length - 1)
-                        ++arrayOnePointer;
-                    else if (arrayTwoPointer < arrayTwo.Length - 1)
-                        ++arrayTwoPointer;
-                    else 
-                        return result;
-                }
+                if (numOne < numTwo)
+                    ++arrayOnePointer;
                 else
-                {
-                    if (arrayTwoPointer < arrayTwo.Length - 1)
-                        ++arrayTwoPointer;
-                    else if (arrayOnePointer < arrayOne.Length - 1)
-                        ++arrayOnePointer;
-                    else 
-                        return result;
-                }
+                    ++arrayTwoPointer;
             }
             return result;
         }
-
     }
 }

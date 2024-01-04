@@ -26,10 +26,10 @@ internal class Program
         //ThreeNumberSumTestOptimal();
 
         //TestMonotonic();
-        //TestSmallestDifference();
+        TestSmallestDifference();
 
         //TestRecursionFibonacci();
-        TestCommonCharacters();
+        //TestCommonCharacters();
 
         // BST - To Do
         //BstConstructionTests();
@@ -37,8 +37,8 @@ internal class Program
 
     private static void TestCommonCharacters()
     {
-        var strings = new string[] {"abc", "bcd", "cbaccd"};
-        WriteLine($"Commons: {CommonCharFinder.CommonCharacters(strings).Display(", ")}");
+        // var strings = new string[] {"abc", "bcd", "cbaccd"};
+        // WriteLine($"Commons: {CommonCharFinder.CommonCharacters(strings).Display(", ")}");
     }
 
     private static void TestRecursionFibonacci()
