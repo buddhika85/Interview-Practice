@@ -39,7 +39,7 @@ internal class Program
     {
         var strings = new string[] {"abc", "bcd", "cbaccd"};
         // var strings = new string[] {"aaaa", "a"};
-        WriteLine($"Commons: {CommonCharFinder.CommonCharactersSolTwo(strings).Display(", ")}");
+        WriteLine($"Commons: {CommonCharFinder.CommonCharactersSolThree(strings).Display(", ")}");
     }
 
     private static void TestRecursionFibonacci()

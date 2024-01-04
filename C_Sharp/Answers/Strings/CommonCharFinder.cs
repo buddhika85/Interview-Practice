@@ -42,5 +42,17 @@ namespace C_Sharp.Answers.Strings
                 list.Add(common.ToString());
             return list.ToArray();
         }
+
+
+        public static string[] CommonCharactersSolThree(string[] strings)
+        {
+            var orderedByLength = strings.OrderBy(x => x.Length);
+            var smallest = orderedByLength.First();
+            var commons = new HashSet<char>(smallest);
+            orderedByLength.SkipWhile(x => x == smallest).ToList().ForEach(x => {              
+                commons = new HashSet<char>(commons.Intersect(new HashSet<char>(x)));
+            });
+            return commons.Select(x => x.ToString()).ToArray();
+        }
     }
 }
