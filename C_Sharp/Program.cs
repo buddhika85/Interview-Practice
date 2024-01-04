@@ -23,10 +23,18 @@ internal class Program
         //ThreeNumberSumTestNotOptimal();
         //ThreeNumberSumTestOptimal();
 
-        TestMonotonic();
+        //TestMonotonic();
+        TestSmallestDifference();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestSmallestDifference()
+    {
+        var arrayOne = new int [] {-1, 5, 10, 20, 28, 3};
+        var arrayTwo = new int[] {26, 134, 135, 15, 17};
+        WriteLine($"Smallest Difference: {SmallestDifferenceOfArrays.SmallestDifference(arrayOne, arrayTwo).Display(",")}");
     }
 
     private static void TestMonotonic()
