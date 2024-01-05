@@ -17,6 +17,12 @@ namespace C_Sharp.Answers.Extensions
             return string.Join(delimeter, array);
         }
 
+        public static string Display<T>(this IEnumerable<T> enumerable, string delimeter)
+        {
+            return string.Join(delimeter, enumerable);
+        }
+
+
         public static string BoolYesNo(this bool value)
         {
             return value ? "yes" : "no";

@@ -29,10 +29,19 @@ internal class Program
         //TestSmallestDifference();
 
         //TestRecursionFibonacci();
-        TestCommonCharacters();
+        //TestCommonCharacters();
+
+        TestMoveElementToEnd();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestMoveElementToEnd()
+    {
+        var list = new List<int> { 2,1,2,2,2,3,4,2 };
+        var toMove = 2;
+        WriteLine($"{MoveElementToEndLogic.MoveElementToEnd(list, toMove).Display(",")}");
     }
 
     private static void TestCommonCharacters()
