@@ -31,17 +31,29 @@ internal class Program
         //TestRecursionFibonacci();
         //TestCommonCharacters();
 
+
         TestCaesarCypherEncryptor();
+
+        //TestMoveElementToEnd();
+
 
         // BST - To Do
         //BstConstructionTests();
     }
+
 
     private static void TestCaesarCypherEncryptor()
     {
         var str = "xyz";
         var shiftedFowardTo = 2;
         WriteLine($"{str} => {CaesarCypherEncryptHelper.CaesarCypherEncryptor("xyz", shiftedFowardTo)}");
+    }
+
+    private static void TestMoveElementToEnd()
+    {
+        var list = new List<int> { 2,1,2,2,2,3,4,2 };
+        var toMove = 2;
+        WriteLine($"{MoveElementToEndLogic.MoveElementToEnd(list, toMove).Display(",")}");
     }
 
     private static void TestCommonCharacters()
