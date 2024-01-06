@@ -29,10 +29,19 @@ internal class Program
         //TestSmallestDifference();
 
         //TestRecursionFibonacci();
-        TestCommonCharacters();
+        //TestCommonCharacters();
+
+        TestCaesarCypherEncryptor();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestCaesarCypherEncryptor()
+    {
+        var str = "xyz";
+        var shiftedFowardTo = 2;
+        WriteLine($"{str} => {CaesarCypherEncryptHelper.CaesarCypherEncryptor("xyz", shiftedFowardTo)}");
     }
 
     private static void TestCommonCharacters()
