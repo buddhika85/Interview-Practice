@@ -32,15 +32,21 @@ internal class Program
         //TestCommonCharacters();
 
 
-        TestCaesarCypherEncryptor();
-
+        //TestCaesarCypherEncryptor();
         //TestMoveElementToEnd();
+
+        TestLongestPeak();
 
 
         // BST - To Do
         //BstConstructionTests();
     }
 
+    private static void TestLongestPeak()
+    {
+        var array = new int[] {1,2,3,3,4,0,10,6,5,-1,-3,2,3};
+        WriteLine($"Longest Peak: {LongestPeakLogic.LongestPeak(array)}");
+    }
 
     private static void TestCaesarCypherEncryptor()
     {
