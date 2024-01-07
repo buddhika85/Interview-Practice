@@ -44,8 +44,18 @@ internal class Program
 
     private static void TestLongestPeak()
     {
-        var array = new int[] {1,2,3,3,4,0,10,6,5,-1,-3,2,3};
-        WriteLine($"Longest Peak: {LongestPeakLogic.LongestPeak(array)}");
+        var data = new List<(int[], int)> 
+        {
+            (new int[] {1,2,3,3,4,0,10,6,5,-1,-3,2,3}, 6),
+            (new int[] {1, 3, 2}, 3),
+            (new int[] {1, 2, 3, 4, 5, 1}, 6),
+            (new int[] {5, 4, 3, 2, 1, 2, 1}, 3),
+            (new int[] {1, 1, 3, 2, 1}, 4)
+        };
+        foreach (var i in data)
+        {
+            WriteLine($"Longest Peak: {LongestPeakLogic.LongestPeak(i.Item1) == i.Item2}");
+        }
     }
 
     private static void TestCaesarCypherEncryptor()

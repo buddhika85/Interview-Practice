@@ -32,7 +32,7 @@ namespace C_Sharp.Answers.Arrays
         {
             var longest = 0;
             // finding all the peaks
-            for (int i = 1; i < array.Length - 2; i++)
+            for (int i = 1; i < array.Length - 1; i++)
             {
                 if (array[i - 1] < array[i] && array[i + 1] < array[i])
                 {
@@ -40,7 +40,7 @@ namespace C_Sharp.Answers.Arrays
                     var rightCorner = i + 1;
                     while (leftCorner - 1 >= 0 && array[leftCorner - 1] < array[leftCorner])
                         --leftCorner;
-                    while (rightCorner + 1 < array.Length - 1 &&  array[rightCorner + 1] < array[rightCorner])
+                    while (rightCorner + 1 <= array.Length - 1 &&  array[rightCorner + 1] < array[rightCorner])
                         ++rightCorner;
                     var length = (rightCorner + 1) - leftCorner;
                     if (length > longest)
