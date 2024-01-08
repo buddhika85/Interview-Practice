@@ -35,11 +35,22 @@ internal class Program
         //TestCaesarCypherEncryptor();
         //TestMoveElementToEnd();
 
-        TestLongestPeak();
-
+        //TestLongestPeak();
+        TestFirstDuplicateValue();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestFirstDuplicateValue()
+    {
+        var array = new int[] {2, 1, 5, 2, 3, 3, 4};
+        var expected = 2;
+        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValue(array) == expected}");
+        
+        array = new int[] {2, 1, 5, 3, 3, 2, 4};
+        expected = 3;
+        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValue(array) == expected}");
     }
 
     private static void TestLongestPeak()
