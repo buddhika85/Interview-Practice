@@ -45,6 +45,7 @@ namespace C_Sharp.Answers.Arrays
                     var length = (rightCorner + 1) - leftCorner;
                     if (length > longest)
                         longest = length;
+                    i = rightCorner - 1;        // no need to revisit these in the main loop
                 }
             }
             return longest;
