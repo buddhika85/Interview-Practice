@@ -46,11 +46,11 @@ internal class Program
     {
         var array = new int[] {2, 1, 5, 2, 3, 3, 4};
         var expected = 2;
-        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValue(array) == expected}");
+        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValueOptimal(array) == expected}");
         
         array = new int[] {2, 1, 5, 3, 3, 2, 4};
         expected = 3;
-        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValue(array) == expected}");
+        WriteLine($"TestFirstDuplicateValue => {FirstDuplicateValueLogic.FirstDuplicateValueOptimal(array) == expected}");
     }
 
     private static void TestLongestPeak()
