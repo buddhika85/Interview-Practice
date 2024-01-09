@@ -36,10 +36,19 @@ internal class Program
         //TestMoveElementToEnd();
 
         //TestLongestPeak();
-        TestFirstDuplicateValue();
+        //TestFirstDuplicateValue();
+
+        TestMajorityElement();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestMajorityElement()
+    {
+        var array = new int[] {1,2,3,2,2,1,2};
+        var expected = 2;
+        WriteLine($"TestMajorityElement => {MajorityElementLogic.MajorityElement(array) == expected}");
     }
 
     private static void TestFirstDuplicateValue()
