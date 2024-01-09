@@ -49,6 +49,7 @@ internal class Program
         var array = new int[] {1,2,3,2,2,1,2};
         var expected = 2;
         WriteLine($"TestMajorityElement => {MajorityElementLogic.MajorityElement(array) == expected}");
+        WriteLine($"TestMajorityElementOptimal => {MajorityElementLogic.MajorityElementOptimalTwo(array) == expected}");
     }
 
     private static void TestFirstDuplicateValue()
