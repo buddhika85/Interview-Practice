@@ -38,10 +38,17 @@ internal class Program
         //TestLongestPeak();
         //TestFirstDuplicateValue();
 
-        TestMajorityElement();
+        //TestMajorityElement();
+        TestMissingNumbers();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestMissingNumbers()
+    {
+        var array = new int[] {1,4,5};
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");
     }
 
     private static void TestMajorityElement()
