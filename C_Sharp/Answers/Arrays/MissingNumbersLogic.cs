@@ -13,6 +13,7 @@ namespace C_Sharp.Answers.Arrays
         // 2 missing => [2,3]
         // only 2 missing
         // return sorted 2 missing
+        // O(n) time | O(n) space --> because we used one hash set (additional space) and nums array we passed
         public static int[] MissingNumbers(int[] nums)
         {
             var all = new HashSet<int>(Enumerable.Range(1, nums.Length + 2));
@@ -20,6 +21,7 @@ namespace C_Sharp.Answers.Arrays
             return all.ToArray();
         }
 
+        // O(n) time | O(1)  --> space is 1 because we did not use any additonal space
         public static int[] MissingNumbersOptimal(int[] nums)
         {
             var sumCurrent = nums.Sum();
