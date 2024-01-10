@@ -48,7 +48,12 @@ internal class Program
     private static void TestMissingNumbers()
     {
         var array = new int[] {1,4,5};
-        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");          // 2,3
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbersOptimal(array).Display(",")}");   // 2,3
+
+        array = new int[] {1,4,3,5};
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");          // 2,6
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbersOptimal(array).Display(",")}");   // 2,6
     }
 
     private static void TestMajorityElement()

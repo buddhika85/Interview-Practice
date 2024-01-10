@@ -20,5 +20,25 @@ namespace C_Sharp.Answers.Arrays
             return all.ToArray();
         }
 
+        public static int[] MissingNumbersOptimal(int[] nums)
+        {
+            var sumCurrent = nums.Sum();
+            var sumAll = Enumerable.Range(1, nums.Length + 2).Sum();
+            var sumDiff = sumAll - sumCurrent;
+            var diffAverage = sumDiff / 2;
+            var sumLeftAll = Enumerable.Range(1, diffAverage).Sum();
+            var sumRightAll = Enumerable.Range(diffAverage + 1, nums.Length + 2 - diffAverage).Sum();
+            var sumLeftCurrent = 0;
+            var sumRightCurrent = 0;
+            foreach (var item in nums)
+            {
+                if (item <= diffAverage)
+                    sumLeftCurrent += item;
+                else
+                    sumRightCurrent += item;
+            }
+            return new int[] {sumLeftAll - sumLeftCurrent, sumRightAll - sumRightCurrent};
+        }
+
     }
 }
