@@ -39,10 +39,28 @@ internal class Program
         //TestFirstDuplicateValue();
 
         //TestMajorityElement();
-        TestMissingNumbers();
+        //TestMissingNumbers();
+
+        TestBestSeat();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestBestSeat()
+    {
+        var seats = new List<(int[], int)> 
+        {
+            (new int[] {1,0,1,0,0,0,1}, 4),
+            (new int[] {1, 0, 1}, 1),
+            (new int[] {1, 0, 0, 1, 0, 0, 1}, 1),
+            (new int[] {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3)        // most space to left and most space to right
+        };
+        foreach (var seat in seats)
+        {
+            var bestSeatIndex = BestSeatLogic.BestSeat(seat.Item1);
+            WriteLine($"Best seat index is => {bestSeatIndex}  correct => {bestSeatIndex == seat.Item2}");
+        }
     }
 
     private static void TestMissingNumbers()
