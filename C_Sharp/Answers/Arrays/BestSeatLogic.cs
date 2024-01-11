@@ -28,8 +28,8 @@ namespace C_Sharp.Answers.Arrays
                     {
                         bestSpace = currentSpace;
                         bestSeat = (right + left) / 2;
-                        left = right;                   // move left to right
                     }
+                    left = right;                   // move left to right
                 }
                 ++right;
             }

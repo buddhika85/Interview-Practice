@@ -54,7 +54,9 @@ internal class Program
             (new int[] {1,0,1,0,0,0,1}, 4),
             (new int[] {1, 0, 1}, 1),
             (new int[] {1, 0, 0, 1, 0, 0, 1}, 1),
-            (new int[] {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3)        // most space to left and most space to right
+            (new int[] {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3),        // most space to left and most space to right
+            (new int[] {1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1}, 3),
+            (new int[] {1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1}, 5)
         };
         foreach (var seat in seats)
         {
