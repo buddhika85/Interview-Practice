@@ -15,7 +15,7 @@ namespace C_Sharp.Answers.LLs
             {
                 node = node.next;
                 ++length;
-            }
+            } 
             var middleIndex = length / 2;
             if (middleIndex == 0)
                 return linkedList;
@@ -26,6 +26,18 @@ namespace C_Sharp.Answers.LLs
                 ++currIndex;
             }
             return linkedList;
+        }
+
+        public static LinkedList MiddleNodeOptimal(LinkedList linkedList)
+        {
+            var speedXPointer = linkedList;
+            var speed2XPointer = linkedList;
+            while(speed2XPointer != null && speed2XPointer.next != null)
+            {
+                speed2XPointer = speed2XPointer.next.next;
+                speedXPointer = speedXPointer.next;
+            }
+            return speedXPointer;
         }
     }
 }

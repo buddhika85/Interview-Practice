@@ -57,6 +57,7 @@ internal class Program
         linkedList.next.next = new LinkedList(3);
         linkedList.next.next.next = new LinkedList(5);
         WriteLine($"Middle is : {FindMiddleNodeLogic.MiddleNode(linkedList)}");
+        WriteLine($"Middle optimal is : {FindMiddleNodeLogic.MiddleNodeOptimal(linkedList)}");
     }
 
     private static void TestLLRemoveDuplicatesLogic()
