@@ -39,16 +39,41 @@ internal class Program
         //TestFirstDuplicateValue();
 
         //TestMajorityElement();
-        TestMissingNumbers();
+        //TestMissingNumbers();
+
+        TestBestSeat();
 
         // BST - To Do
         //BstConstructionTests();
     }
 
+    private static void TestBestSeat()
+    {
+        var seats = new List<(int[], int)> 
+        {
+            (new int[] {1,0,1,0,0,0,1}, 4),
+            (new int[] {1, 0, 1}, 1),
+            (new int[] {1, 0, 0, 1, 0, 0, 1}, 1),
+            (new int[] {1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1}, 3),        // most space to left and most space to right
+            (new int[] {1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1}, 3),
+            (new int[] {1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1}, 5)
+        };
+        foreach (var seat in seats)
+        {
+            var bestSeatIndex = BestSeatLogic.BestSeat(seat.Item1);
+            WriteLine($"Best seat index is => {bestSeatIndex}  correct => {bestSeatIndex == seat.Item2}");
+        }
+    }
+
     private static void TestMissingNumbers()
     {
         var array = new int[] {1,4,5};
-        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");          // 2,3
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbersOptimal(array).Display(",")}");   // 2,3
+
+        array = new int[] {1,4,3,5};
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbers(array).Display(",")}");          // 2,6
+        WriteLine($"Missing => {MissingNumbersLogic.MissingNumbersOptimal(array).Display(",")}");   // 2,6
     }
 
     private static void TestMajorityElement()
