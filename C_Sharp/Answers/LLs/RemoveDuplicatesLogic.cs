@@ -8,7 +8,9 @@ namespace C_Sharp.Answers.LLs
 {
     public class RemoveDuplicatesLogic
     {
-        public LinkedList RemoveDuplicatesFromLinkedList(LinkedList linkedList)
+        // 1 --> 1 --> 3 --> 4 --> 4 --> 4 --> 5 --> 6 --> 6
+        // 1 --> 3 --> 4 --> 5 --> 6
+        public static LinkedList RemoveDuplicatesFromLinkedList(LinkedList linkedList)
         {
             var node = linkedList;
             var curr = node.next;

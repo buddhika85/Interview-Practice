@@ -4,6 +4,7 @@ using C_Sharp.Answers.Extensions;
 using C_Sharp.Answers.Arrays;
 using C_Sharp.Answers.Recursion;
 using C_Sharp.Answers.Strings;
+using C_Sharp.Answers.LLs;
 
 internal class Program
 {
@@ -41,10 +42,29 @@ internal class Program
         //TestMajorityElement();
         //TestMissingNumbers();
 
-        TestBestSeat();
+        //TestBestSeat();
+        TestLLRemoveDuplicatesLogic();
 
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestLLRemoveDuplicatesLogic()
+    {
+        var linkedList = new LinkedList(1);
+        linkedList.next = new LinkedList(1);        
+        linkedList.next.next = new LinkedList(3);
+        linkedList.next.next.next = new LinkedList(4);
+        linkedList.next.next.next.next = new LinkedList(4);
+        linkedList.next.next.next.next.next = new LinkedList(4);
+        linkedList.next.next.next.next.next.next = new LinkedList(5);
+        linkedList.next.next.next.next.next.next.next = new LinkedList(6);
+        linkedList.next.next.next.next.next.next.next.next = new LinkedList(6);
+
+
+        WriteLine(linkedList);
+        RemoveDuplicatesLogic.RemoveDuplicatesFromLinkedList(linkedList);
+        WriteLine(linkedList);
     }
 
     private static void TestBestSeat()
