@@ -18,7 +18,7 @@ namespace C_Sharp.Answers.LLs
             {
                 if (node.value == curr.value)
                     node.next = null;
-                else
+                if (node.value < curr.value)
                 {
                     node.next = curr;
                     node = curr;
