@@ -43,10 +43,20 @@ internal class Program
         //TestMissingNumbers();
 
         //TestBestSeat();
-        TestLLRemoveDuplicatesLogic();
-
+        //TestLLRemoveDuplicatesLogic();
+        TestFindMiddleNodeLogic();
+        
         // BST - To Do
         //BstConstructionTests();
+    }
+
+    private static void TestFindMiddleNodeLogic()
+    {
+        var linkedList = new LinkedList(2);
+        linkedList.next = new LinkedList(7);        
+        linkedList.next.next = new LinkedList(3);
+        linkedList.next.next.next = new LinkedList(5);
+        WriteLine($"Middle is : {FindMiddleNodeLogic.MiddleNode(linkedList)}");
     }
 
     private static void TestLLRemoveDuplicatesLogic()

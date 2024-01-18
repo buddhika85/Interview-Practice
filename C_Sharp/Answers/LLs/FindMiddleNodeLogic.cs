@@ -7,11 +7,13 @@ namespace C_Sharp.Answers.LLs
 {
     public class FindMiddleNodeLogic
     {
-        public LinkedList MiddleNode(LinkedList linkedList)
+        public static LinkedList MiddleNode(LinkedList linkedList)
         {
             var length = 1;
-            while(linkedList.next != null)
+            var node =  linkedList;
+            while(node.next != null)
             {
+                node = node.next;
                 ++length;
             }
             var middleIndex = length / 2;
