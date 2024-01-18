@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace C_Sharp.Answers.LLs
@@ -35,5 +36,19 @@ public class LinkedList
     {
         this.value = value;
         this.next = null;
+    }
+
+
+    public override string ToString()
+    {
+        var node = this;
+        StringBuilder sb = new();
+        sb.Append(node.value);
+        while(node.next != null)
+        {
+            node = node.next;
+            sb.Append($" --> {node.value}");
+        }
+        return sb.ToString();
     }
 }
