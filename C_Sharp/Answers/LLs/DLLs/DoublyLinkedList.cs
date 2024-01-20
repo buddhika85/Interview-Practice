@@ -52,9 +52,22 @@ namespace C_Sharp.Answers.LLs.DLLs
       }
     }
 
+
+    // 1 <-> 2 <-> 3 <-> 4 <-> 5
+    // node 6
+    // setTail(6) --> 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6
+    // node 7 <-> 8 <-> 9
+    // setTail(6) --> 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6 <-> 7 <-> 8 <-> 9
     public void SetTail(Node node)
     {
-      // Write your code here.
+      Tail.Next = node;
+      ++Length;
+      while(node.Next != null)
+      {
+        node = node.Next;
+        ++Length;
+      }
+      Tail = node;
     }
 
     public void InsertBefore(Node node, Node nodeToInsert)

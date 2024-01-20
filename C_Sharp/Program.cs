@@ -55,10 +55,31 @@ internal class Program
         DoublyLinkedList doublyLinkedList = new();
         PopulateDll(doublyLinkedList);
         WriteLine(doublyLinkedList);
-        doublyLinkedList.SetHead(new Node(4));
+
+        // doublyLinkedList.SetHead(new Node(4));
+        // WriteLine(doublyLinkedList);
+        // TestAddingSubDll(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        doublyLinkedList.SetTail(new Node(6));
         WriteLine(doublyLinkedList);
-        TestAddingSubDll(doublyLinkedList);
+        TestAddingSubDllTail(doublyLinkedList);
         WriteLine(doublyLinkedList);
+    }
+
+    private static void TestAddingSubDllTail(DoublyLinkedList doublyLinkedList)
+    {
+        Node subLinkedList = new(7);
+        Node nodeOne = new(8);
+        Node nodeTwo = new(9);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+
+        doublyLinkedList.SetTail(subLinkedList);
     }
 
     private static void TestAddingSubDll(DoublyLinkedList doublyLinkedList)
