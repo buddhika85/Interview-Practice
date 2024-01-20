@@ -61,9 +61,12 @@ internal class Program
         // TestAddingSubDll(doublyLinkedList);
         // WriteLine(doublyLinkedList);
 
-        doublyLinkedList.SetTail(new Node(6));
-        WriteLine(doublyLinkedList);
-        TestAddingSubDllTail(doublyLinkedList);
+        // doublyLinkedList.SetTail(new Node(6));
+        // WriteLine(doublyLinkedList);
+        // TestAddingSubDllTail(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        doublyLinkedList.InsertBefore(new Node(3), new Node(10));
         WriteLine(doublyLinkedList);
     }
 

@@ -70,9 +70,48 @@ namespace C_Sharp.Answers.LLs.DLLs
       Tail = node;
     }
 
+    // 4 <-> 1 <-> 2 <-> 3 <-> 5 <-> 6
+    // insertBefore(node: 6, nodeToInsert: 3) --> 
+    // 4 <-> 1 <-> 2 <-> 3 <-> 5 <-> 3 <-> 6
+    //
+    // case 2: 1 <-> 2 <-> 3 <-> 4
+    // insertBefore(node: 3, nodeToInsert: 10) --> 
+    // 1 <-> 2 <-> 10 <-> 3 <-> 4
+    //
+    // case 3: 1 <-> 2 <-> 3 <-> 4
+    // insertBefore(node: 2, nodeToInsert: 20 <-> 30 <-> 40) --> 
+    // 1 <-> 20 <-> 30 <-> 40 <-> 2 <-> 10 <-> 3 <-> 4
     public void InsertBefore(Node node, Node nodeToInsert)
     {
-      // Write your code here.
+      if (Length == 0)
+        return;               // cannot add before as it is empty
+     
+      // add before head
+      if (node.Value == Head.Value)
+      {
+        SetHead(nodeToInsert);
+        return;
+      }
+
+      // add to middle
+      var currNode = Head;
+      while(currNode != null && currNode.Value != node.Value)
+      {
+        currNode = node.Next;
+      }
+      if (currNode == null || currNode.Value != node.Value)
+        return;             // cannot insert as node before is not found
+      
+      currNode.Prev.Next = nodeToInsert;
+      nodeToInsert.Prev = currNode.Prev;
+      ++Length;
+      while(nodeToInsert.Next != null)
+      {
+        nodeToInsert = nodeToInsert.Next;
+        ++Length;
+      }
+      nodeToInsert.Next = currNode;
+      currNode.Prev = nodeToInsert;
     }
 
     public void InsertAfter(Node node, Node nodeToInsert)
