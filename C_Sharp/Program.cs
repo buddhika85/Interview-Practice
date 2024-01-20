@@ -5,6 +5,7 @@ using C_Sharp.Answers.Arrays;
 using C_Sharp.Answers.Recursion;
 using C_Sharp.Answers.Strings;
 using C_Sharp.Answers.LLs;
+using C_Sharp.Answers.LLs.DLLs;
 
 internal class Program
 {
@@ -44,10 +45,30 @@ internal class Program
 
         //TestBestSeat();
         //TestLLRemoveDuplicatesLogic();
-        TestFindMiddleNodeLogic();
+        //TestFindMiddleNodeLogic();
         
         // BST - To Do
         //BstConstructionTests();
+
+        // DLL
+        TestAddNode();
+    }
+
+    private static void TestAddNode()
+    {
+        // 1 <-> 2 <-> 3 <-> 4 <-> 5
+        DoublyLinkedList doublyLinkedList = new();
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
+        doublyLinkedList.AddNode(new Node(1));
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
+        doublyLinkedList.AddNode(new Node(2));
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
+        doublyLinkedList.AddNode(new Node(3));
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
+        doublyLinkedList.AddNode(new Node(4));
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
+        doublyLinkedList.AddNode(new Node(5));
+        WriteLine($"{doublyLinkedList}{Environment.NewLine}");
     }
 
     private static void TestFindMiddleNodeLogic()

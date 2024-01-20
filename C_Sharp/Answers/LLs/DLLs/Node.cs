@@ -9,5 +9,10 @@ namespace C_Sharp.Answers.LLs.DLLs
     public Node(int value) {
       this.Value = value;
     }
+  
+    public override string ToString()
+    {
+        return Value.ToString();
+    }
   }
 }
