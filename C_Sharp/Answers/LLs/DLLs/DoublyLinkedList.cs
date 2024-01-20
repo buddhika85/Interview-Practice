@@ -24,9 +24,32 @@ namespace C_Sharp.Answers.LLs.DLLs
       ++Length;
     }
 
+    // 1 <-> 2 <-> 3 <-> 4 <-> 5
+    // Node 4
+    // 4 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5
+    // Node 10 <-> 20 <-> 30
+    // 10 <-> 20 <-> 30 <-> 4 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5
     public void SetHead(Node node)
     {
-      // Write your code here.
+      if (Length == 0)
+      {
+        Head = node;
+        Tail = node;
+        ++Length;
+      }
+      else
+      {
+        var prevHead = Head;
+        Head = node;
+        ++Length;
+        var currNode = Head;
+        while(currNode.Next != null)
+        {
+          currNode = currNode.Next;
+          ++Length;          
+        }
+        currNode.Next = prevHead;
+      }
     }
 
     public void SetTail(Node node)

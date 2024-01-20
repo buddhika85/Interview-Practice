@@ -51,7 +51,37 @@ internal class Program
         //BstConstructionTests();
 
         // DLL
-        TestAddNode();
+        //TestAddNode();
+        DoublyLinkedList doublyLinkedList = new();
+        PopulateDll(doublyLinkedList);
+        WriteLine(doublyLinkedList);
+        doublyLinkedList.SetHead(new Node(4));
+        WriteLine(doublyLinkedList);
+        TestAddingSubDll(doublyLinkedList);
+        WriteLine(doublyLinkedList);
+    }
+
+    private static void TestAddingSubDll(DoublyLinkedList doublyLinkedList)
+    {
+        Node subLinkedList = new(10);
+        Node nodeOne = new(20);
+        Node nodeTwo = new(30);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+
+        doublyLinkedList.SetHead(subLinkedList);
+    }
+
+    private static void PopulateDll(DoublyLinkedList doublyLinkedList)
+    {
+        doublyLinkedList.AddNode(new Node(1));
+        doublyLinkedList.AddNode(new Node(2));
+        doublyLinkedList.AddNode(new Node(3));
+        doublyLinkedList.AddNode(new Node(4));
     }
 
     private static void TestAddNode()
