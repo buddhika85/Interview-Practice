@@ -19,6 +19,7 @@ namespace C_Sharp.Answers.LLs.DLLs
       else
       {
         Tail.Next = node;
+        node.Prev = Tail;
         Tail = node;
       }
       ++Length;
@@ -95,9 +96,9 @@ namespace C_Sharp.Answers.LLs.DLLs
 
       // add to middle
       var currNode = Head;
-      while(currNode != null && currNode.Value != node.Value)
+      while(currNode.Next != null && currNode.Value != node.Value)
       {
-        currNode = node.Next;
+        currNode = currNode.Next;
       }
       if (currNode == null || currNode.Value != node.Value)
         return;             // cannot insert as node before is not found
