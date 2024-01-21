@@ -56,16 +56,23 @@ internal class Program
         PopulateDll(doublyLinkedList);
         WriteLine(doublyLinkedList);
 
+        // WriteLine("Set Head 4");
         // doublyLinkedList.SetHead(new Node(4));
         // WriteLine(doublyLinkedList);
+
+        // WriteLine("Set Head 10 <-> 20 20 <-> 30");
         // TestAddingSubDll(doublyLinkedList);
         // WriteLine(doublyLinkedList);
 
+        // WriteLine("Set Tail 6");
         // doublyLinkedList.SetTail(new Node(6));
         // WriteLine(doublyLinkedList);
+
+        // WriteLine("Set Tail 7 <-> 8 <-> 9");
         // TestAddingSubDllTail(doublyLinkedList);
         // WriteLine(doublyLinkedList);
 
+        WriteLine("Add 10 before 3");
         doublyLinkedList.InsertBefore(new Node(3), new Node(10));
         WriteLine(doublyLinkedList);
     }
