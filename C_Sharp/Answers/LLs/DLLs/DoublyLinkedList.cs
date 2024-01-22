@@ -123,7 +123,7 @@ namespace C_Sharp.Answers.LLs.DLLs
       // add after the tail
       if (node.Value == Tail.Value)
       {
-        SetTail(node);
+        SetTail(nodeToInsert);
         return;
       }
 
@@ -138,16 +138,16 @@ namespace C_Sharp.Answers.LLs.DLLs
         return;             // node not found, so cannot insert anything after it
       
       var after = currNode.Next;
-      currNode.Next = node;
-      node.Prev = currNode;
+      currNode.Next = nodeToInsert;
+      nodeToInsert.Prev = currNode;
       ++Length;
-      while(node.Next != null)
+      while(nodeToInsert.Next != null)
       {        
-        node = node.Next;
+        nodeToInsert = nodeToInsert.Next;
         ++Length;
       }
-      node.Next = after;
-      after.Prev = node;
+      nodeToInsert.Next = after;
+      after.Prev = nodeToInsert;
     }
 
     public void InsertAtPosition(int position, Node nodeToInsert)

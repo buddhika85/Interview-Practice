@@ -76,18 +76,79 @@ internal class Program
         // doublyLinkedList.InsertBefore(new Node(3), new Node(10));
         // WriteLine(doublyLinkedList);
 
-        WriteLine("Add 20 <-> 30 <-> 40 before 2");
-        TestAddingSubDllBeforeNode(doublyLinkedList);
-        WriteLine(doublyLinkedList);
+        // WriteLine("Add 20 <-> 30 <-> 40 before 2");
+        // TestAddingSubDllBeforeNode(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
 
 
-        WriteLine("Add 50 <-> 60 <-> 70 before 4");
-        TestAddingSubDllBeforeNodeCase2(doublyLinkedList);
+        // WriteLine("Add 50 <-> 60 <-> 70 before 4");
+        // TestAddingSubDllBeforeNodeCase2(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Add -3 <-> -2 <-> 0 before 1");
+        // TestAddingSubDllBeforeNodeCase3(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        WriteLine("Add 10 after 3");
+        doublyLinkedList.InsertAfter(new Node(3), new Node(10));
         WriteLine(doublyLinkedList);
 
-        WriteLine("Add -3 <-> -2 <-> 0 before 1");
-        TestAddingSubDllBeforeNodeCase3(doublyLinkedList);
+        WriteLine("Add 20 <-> 30 <-> 40 after 2");
+        TestAddingSubDllAfterNode(doublyLinkedList);
         WriteLine(doublyLinkedList);
+
+        WriteLine("Add 50 <-> 60 <-> 70 after 4");
+        TestAddingSubDllAfterNodeCase2(doublyLinkedList);
+        WriteLine(doublyLinkedList);
+
+        WriteLine("Add -3 <-> -2 <-> 0 after 1");
+        TestAddingSubDllAfterNodeCase3(doublyLinkedList);
+        WriteLine(doublyLinkedList);
+    }
+
+    private static void TestAddingSubDllAfterNodeCase3(DoublyLinkedList doublyLinkedList)
+    {
+        // Add -3 <-> -2 <-> 0 after 1
+        Node subLinkedList = new(-3);
+        Node nodeOne = new(-2);
+        Node nodeTwo = new(0);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAfter(new Node(1), subLinkedList);
+    }
+
+    private static void TestAddingSubDllAfterNodeCase2(DoublyLinkedList doublyLinkedList)
+    {
+        // Add 50 <-> 60 <-> 70 after 4
+        Node subLinkedList = new(50);
+        Node nodeOne = new(60);
+        Node nodeTwo = new(70);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAfter(new Node(4), subLinkedList);
+    }
+
+    private static void TestAddingSubDllAfterNode(DoublyLinkedList doublyLinkedList)
+    {
+        // Add 20 <-> 30 <-> 40 after 2
+        Node subLinkedList = new(20);
+        Node nodeOne = new(30);
+        Node nodeTwo = new(40);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAfter(new Node(2), subLinkedList);
     }
 
     private static void TestAddingSubDllBeforeNodeCase3(DoublyLinkedList doublyLinkedList)
