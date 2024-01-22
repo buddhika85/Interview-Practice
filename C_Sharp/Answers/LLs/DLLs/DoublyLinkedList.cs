@@ -172,7 +172,7 @@ namespace C_Sharp.Answers.LLs.DLLs
       InsertBefore(nodeByIndex, nodeToInsert);
     }
 
-    public Node? GetNodeByIndex(int position)
+    public Node GetNodeByIndex(int position)
     {
       if (position < 0 || position > Length - 1)
         return null;      // No such position
