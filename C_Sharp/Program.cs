@@ -50,6 +50,11 @@ internal class Program
         // BST - To Do
         //BstConstructionTests();
 
+        TestDLL();
+    }
+
+    private static void TestDLL()
+    {
         // DLL
         //TestAddNode();
         DoublyLinkedList doublyLinkedList = new();
@@ -89,21 +94,105 @@ internal class Program
         // TestAddingSubDllBeforeNodeCase3(doublyLinkedList);
         // WriteLine(doublyLinkedList);
 
-        WriteLine("Add 10 after 3");
-        doublyLinkedList.InsertAfter(new Node(3), new Node(10));
-        WriteLine(doublyLinkedList);
+        // WriteLine("Add 10 after 3");
+        // doublyLinkedList.InsertAfter(new Node(3), new Node(10));
+        // WriteLine(doublyLinkedList);
 
-        WriteLine("Add 20 <-> 30 <-> 40 after 2");
-        TestAddingSubDllAfterNode(doublyLinkedList);
-        WriteLine(doublyLinkedList);
+        // WriteLine("Add 20 <-> 30 <-> 40 after 2");
+        // TestAddingSubDllAfterNode(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
 
-        WriteLine("Add 50 <-> 60 <-> 70 after 4");
-        TestAddingSubDllAfterNodeCase2(doublyLinkedList);
-        WriteLine(doublyLinkedList);
+        // WriteLine("Add 50 <-> 60 <-> 70 after 4");
+        // TestAddingSubDllAfterNodeCase2(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
 
-        WriteLine("Add -3 <-> -2 <-> 0 after 1");
-        TestAddingSubDllAfterNodeCase3(doublyLinkedList);
-        WriteLine(doublyLinkedList);
+        // WriteLine("Add -3 <-> -2 <-> 0 after 1");
+        // TestAddingSubDllAfterNodeCase3(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 10 at 0");
+        // doublyLinkedList.InsertAtPosition(0, new Node(10));
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 100 at 5");
+        // doublyLinkedList.InsertAtPosition(5, new Node(100));
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 100 at 7-this will not work as index 7 cannot be reached for length 6");
+        // doublyLinkedList.InsertAtPosition(7, new Node(100));
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 100 at -1 -this will not work as negative indexing is unavailable");
+        // doublyLinkedList.InsertAtPosition(-1, new Node(100));
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 50 at 3");
+        // doublyLinkedList.InsertAtPosition(3, new Node(50));
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 20 <-> 30 <-> 40 at index 0");
+        // TestAddingSubDllIndexZero(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 110 <-> 120 <-> 130 at index 10");
+        // TestAddingSubDllIndexOfTail(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        // WriteLine("Insert 44 <-> 55 <-> 66 at index 4 - middle");
+        // TestAddingSubDllIndexOfMiddle(doublyLinkedList);
+        // WriteLine(doublyLinkedList);
+
+        WriteLine("Node contains or not ?");
+        var testCases = new int[] {1,2,3,4,5,0,-1};
+        foreach (var item in testCases)
+        {
+            WriteLine($"{item} contains => {doublyLinkedList.ContainsNodeWithValue(item)}");
+        }
+    }
+
+    private static void TestAddingSubDllIndexOfMiddle(DoublyLinkedList doublyLinkedList)
+    {
+        // Insert 44 <-> 55 <-> 66 at index 4 - middle
+        Node subLinkedList = new(44);
+        Node nodeOne = new(55);
+        Node nodeTwo = new(66);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAtPosition(4, subLinkedList);
+    }
+
+    private static void TestAddingSubDllIndexOfTail(DoublyLinkedList doublyLinkedList)
+    {
+        // Insert 110 <-> 120 <-> 130 at index 10
+        Node subLinkedList = new(110);
+        Node nodeOne = new(120);
+        Node nodeTwo = new(130);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAtPosition(10, subLinkedList);
+    }
+
+    private static void TestAddingSubDllIndexZero(DoublyLinkedList doublyLinkedList)
+    {
+        // Add 20 <-> 30 <-> 40 @ index 0
+        Node subLinkedList = new(20);
+        Node nodeOne = new(30);
+        Node nodeTwo = new(40);
+
+        subLinkedList.Next = nodeOne;
+        nodeOne.Prev = subLinkedList;
+
+        nodeOne.Next = nodeTwo;
+        nodeTwo.Prev =  nodeOne;
+        doublyLinkedList.InsertAtPosition(0, subLinkedList);
     }
 
     private static void TestAddingSubDllAfterNodeCase3(DoublyLinkedList doublyLinkedList)

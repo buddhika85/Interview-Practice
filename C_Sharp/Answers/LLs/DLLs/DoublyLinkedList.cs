@@ -50,6 +50,7 @@ namespace C_Sharp.Answers.LLs.DLLs
           ++Length;          
         }
         currNode.Next = prevHead;
+        prevHead.Prev = currNode;
       }
     }
 
@@ -152,7 +153,41 @@ namespace C_Sharp.Answers.LLs.DLLs
 
     public void InsertAtPosition(int position, Node nodeToInsert)
     {
-      // Write your code here.
+      if (position == 0)
+      {
+        SetHead(nodeToInsert);
+        return;
+      }
+
+      if (position == Length)
+      {
+        SetTail(nodeToInsert);
+        return;
+      }
+
+      var nodeByIndex = GetNodeByIndex(position);
+      if (nodeByIndex == null)
+        return;         // no such position
+      
+      InsertBefore(nodeByIndex, nodeToInsert);
+    }
+
+    public Node? GetNodeByIndex(int position)
+    {
+      if (position < 0 || position > Length - 1)
+        return null;      // No such position
+      // if (position == 0)
+      //   return Head;
+      // if (position == Length - 1)
+      //   return Tail;
+      Node? node = Head;
+      for (var i = 0; i <= position; i++)
+      {
+        if (i == position)
+          return node;
+        node = node.Next;
+      }
+      return null;
     }
 
     public void RemoveNodesWithValue(int value)
@@ -167,7 +202,13 @@ namespace C_Sharp.Answers.LLs.DLLs
 
     public bool ContainsNodeWithValue(int value)
     {
-      // Write your code here.
+      var node = Head;
+      while(node != null)
+      {
+        if (node.Value == value)
+          return true;
+        node = node.Next;
+      }
       return false;
     }
 
