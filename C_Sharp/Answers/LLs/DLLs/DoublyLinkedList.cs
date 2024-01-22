@@ -192,12 +192,48 @@ namespace C_Sharp.Answers.LLs.DLLs
 
     public void RemoveNodesWithValue(int value)
     {
-      // Write your code here.
+      var currNode = Head;
+      while(currNode != null)
+      {
+        if (currNode.Value == value)
+        {
+          if (Length == 1)
+          {
+            Head = null;
+            Tail = null;
+          }
+          // remove head
+          else if (currNode == Head)
+          {
+            Head = currNode.Next;
+            currNode.Next.Prev = null;
+          }
+          // remove tail
+          else if (currNode == Tail)
+          {
+            Tail = currNode.Prev;
+            currNode.Prev.Next = null;
+          }
+          // remove from middle
+          else
+          {
+            currNode.Prev.Next = currNode.Next;
+            currNode.Next.Prev = currNode.Prev;            
+          }
+          --Length;
+        }
+        currNode = currNode.Next;
+        
+      }
     }
 
     public void Remove(Node node)
     {
-      // Write your code here.
+      // var currNode = Head;
+      // while(currNode != null)
+      // {
+      //   if (currNode == )
+      // }
     }
 
     public bool ContainsNodeWithValue(int value)

@@ -142,11 +142,19 @@ internal class Program
         // TestAddingSubDllIndexOfMiddle(doublyLinkedList);
         // WriteLine(doublyLinkedList);
 
-        WriteLine("Node contains or not ?");
-        var testCases = new int[] {1,2,3,4,5,0,-1};
+        // WriteLine("Node contains or not ?");
+        // var testCases = new int[] {1,2,3,4,5,0,-1};
+        // foreach (var item in testCases)
+        // {
+        //     WriteLine($"{item} contains => {doublyLinkedList.ContainsNodeWithValue(item)}");
+        // }
+
+        var testCases = new int[] {1,4,3,0,2,-1};
         foreach (var item in testCases)
         {
-            WriteLine($"{item} contains => {doublyLinkedList.ContainsNodeWithValue(item)}");
+            WriteLine($"Remove: {item}");
+            doublyLinkedList.RemoveNodesWithValue(item);
+            WriteLine(doublyLinkedList);
         }
     }
 
