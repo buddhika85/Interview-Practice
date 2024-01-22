@@ -229,11 +229,7 @@ namespace C_Sharp.Answers.LLs.DLLs
 
     public void Remove(Node node)
     {
-      // var currNode = Head;
-      // while(currNode != null)
-      // {
-      //   if (currNode == )
-      // }
+      RemoveNodesWithValue(node.Value);
     }
 
     public bool ContainsNodeWithValue(int value)
