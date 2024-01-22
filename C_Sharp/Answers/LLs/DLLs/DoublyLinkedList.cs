@@ -117,7 +117,37 @@ namespace C_Sharp.Answers.LLs.DLLs
 
     public void InsertAfter(Node node, Node nodeToInsert)
     {
-      // Write your code here.
+      if (Length == 0)
+        return;               // cannot add after as it is empty
+
+      // add after the tail
+      if (node.Value == Tail.Value)
+      {
+        SetTail(node);
+        return;
+      }
+
+      // add to middle
+      var currNode = Head;
+      while(currNode != null && currNode.Value != node.Value)
+      {
+        currNode = currNode.Next;
+      }
+
+      if (currNode == null || currNode.Value != node.Value)
+        return;             // node not found, so cannot insert anything after it
+      
+      var after = currNode.Next;
+      currNode.Next = node;
+      node.Prev = currNode;
+      ++Length;
+      while(node.Next != null)
+      {        
+        node = node.Next;
+        ++Length;
+      }
+      node.Next = after;
+      after.Prev = node;
     }
 
     public void InsertAtPosition(int position, Node nodeToInsert)
