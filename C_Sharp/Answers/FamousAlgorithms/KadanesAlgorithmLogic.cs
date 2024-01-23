@@ -20,8 +20,8 @@ namespace C_Sharp.Answers.FamousAlgorithms
             var maxEndingHere = 0;
             foreach (var item in array)
             {
-                maxEndingHere = int.Max(maxEndingHere + item, item);
-                maxSoFar = int.Max(maxSoFar, maxEndingHere);
+                maxEndingHere = Math.Max(maxEndingHere + item, item);
+                maxSoFar = Math.Max(maxSoFar, maxEndingHere);
             }
             return maxSoFar;
         }
