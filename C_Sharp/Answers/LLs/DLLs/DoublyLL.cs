@@ -37,12 +37,26 @@ namespace C_Sharp.Answers.LLs.DLLs
 
         public void RemoveNodesWithValue(int value)
         {
-            // Write your code here.
+            var currNode = Head;
+            while (currNode != null)
+            {
+                if (currNode.Value == value)
+                {
+                    // remove
+                    var prev = currNode.Prev;
+                    var next = currNode.Next;
+                    prev.Next = next;
+                    next.Prev = prev;
+                    currNode = prev;
+                }
+                // move foward
+                currNode = currNode.Next;
+            }
         }
 
         public void Remove(Node node)
         {
-            // Write your code here.
+            RemoveNodesWithValue(node.Value);
         }
 
         public bool ContainsNodeWithValue(int value)
