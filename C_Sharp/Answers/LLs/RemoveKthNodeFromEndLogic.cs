@@ -4,12 +4,7 @@ namespace C_Sharp.Answers.LLs
 {
     public class RemoveKthNodeFromEndLogic
     {
-        public static void RemoveKthNodeFromEnd(ref TestLL.LinkedList head, int k)
-        {
-
-        }
-
-        public static void RemoveKthNodeFromEndAttempt1(ref TestLL.LinkedList head, int k) 
+        public static void RemoveKthNodeFromEnd(TestLL.LinkedList head, int k) 
         {
             var pointer1 = head;
             var pointer2 = head;            
@@ -24,14 +19,18 @@ namespace C_Sharp.Answers.LLs
             else if (k - iPointer2 == 1)
             {
                 // remove head
-                // head = head.Next;    
-                // head.Show();           
+                // head = head.Next;
+                // head.Show();
                 // return;
-                var newHead = pointer1.Next;
-                pointer1 = newHead; 
-                head = newHead;
-                head.Show();   
-                return;   
+
+                // var newHead = pointer1.Next;
+                // pointer1 = newHead; 
+                // head = newHead;
+                // head.Show();   
+                // return;
+                head.Value = head.Next.Value;
+                head.Next = head.Next.Next;
+                return; 
             }
             while(pointer2.Next != null)
             {
@@ -48,14 +47,14 @@ namespace C_Sharp.Answers.LLs
         {
             TestLL.LinkedList linkedList = GetSampleLinkedList();
 
-            // linkedList.Show();
-            // RemoveKthNodeFromEnd(linkedList, 4);
-            // linkedList.Show();
+            linkedList.Show();
+            RemoveKthNodeFromEnd(linkedList, 4);
+            linkedList.Show();
 
-            // linkedList = GetSampleLinkedList();
+            linkedList = GetSampleLinkedList();
 
             linkedList.Show();
-            RemoveKthNodeFromEnd(ref linkedList, 10);
+            RemoveKthNodeFromEnd(linkedList, 10);
             linkedList.Show();
         }
 
