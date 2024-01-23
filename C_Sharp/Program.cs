@@ -6,6 +6,7 @@ using C_Sharp.Answers.Recursion;
 using C_Sharp.Answers.Strings;
 using C_Sharp.Answers.LLs;
 using C_Sharp.Answers.LLs.DLLs;
+using C_Sharp.Answers.FamousAlgorithms;
 
 internal class Program
 {
@@ -52,7 +53,8 @@ internal class Program
 
         //TestDLL();
 
-        RemoveKthNodeFromEndLogic.RemoveKthNodeFromEndLogicTest();
+        //RemoveKthNodeFromEndLogic.RemoveKthNodeFromEndLogicTest();
+        KadanesAlgorithmLogic.KadanesAlgorithmTest();
     }
 
     private static void TestDLL()
