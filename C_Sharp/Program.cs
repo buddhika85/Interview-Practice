@@ -51,6 +51,8 @@ internal class Program
         //BstConstructionTests();
 
         //TestDLL();
+
+        RemoveKthNodeFromEndLogic.RemoveKthNodeFromEndLogicTest();
     }
 
     private static void TestDLL()

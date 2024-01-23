@@ -22,7 +22,7 @@ namespace C_Sharp.Answers.LLs.DLLs
 
         public void InsertBefore(Node node, Node nodeToInsert)
         {
-            // Write your code here.
+            
         }
 
         public void InsertAfter(Node node, Node nodeToInsert)
@@ -38,25 +38,78 @@ namespace C_Sharp.Answers.LLs.DLLs
         public void RemoveNodesWithValue(int value)
         {
             var currNode = Head;
-            while (currNode != null)
+            while(currNode != null)
             {
                 if (currNode.Value == value)
                 {
                     // remove
-                    var prev = currNode.Prev;
-                    var next = currNode.Next;
-                    prev.Next = next;
-                    next.Prev = prev;
-                    currNode = prev;
+                    if (currNode == Head)
+                    {
+                        Head = currNode.Next;
+                        if (Head != null)
+                            Head.Prev = null;
+                        currNode = Head;
+                    }
+                    else if (currNode ==  Tail)
+                    {
+                        Tail = currNode.Prev;
+                        if (Tail != null)
+                            Tail.Next = null;
+                        currNode = Tail;
+                    }
+                    else
+                    {
+                        var prev = currNode.Prev;
+                        prev.Next =  currNode.Next;
+                        currNode.Next.Prev = prev;
+                        currNode = prev;
+                    }
                 }
-                // move foward
+
                 currNode = currNode.Next;
             }
         }
 
         public void Remove(Node node)
         {
-            RemoveNodesWithValue(node.Value);
+            // cannot remove in an empty list
+            if (Head == null)
+                return;
+
+            // single node
+            if (Head == Tail && Head == node)
+            {
+                Head = null;
+                Tail = null;
+                return;
+            }
+
+            // remove head of multi node LL
+            if (node == Head)
+            {
+                Head = Head.Next;
+                Head.Prev = null;
+                return;
+            }
+
+            // remove tail of multi node LL
+            if (node == Tail)
+            {
+                Tail = Tail.Prev;
+                Tail.Next = null;
+                return;
+            }
+
+            // from middle
+            var currNode = Head.Next;
+            while(currNode != null && currNode != Tail)
+            {
+                if (currNode == node)
+                {
+                    currNode.Prev.Next =  currNode.Next;
+                    currNode.Next.Prev = currNode.Prev;
+                }
+            }
         }
 
         public bool ContainsNodeWithValue(int value)
