@@ -39,7 +39,7 @@ namespace C_Sharp.Answers.LLs
             }
             // now pointer 2 is at tail
             // pointer 1.next is one to remove
-            var newNext = pointer1.Next.Next;          
+            var newNext = pointer1.Next.Next;
             pointer1.Next = newNext;
         }
 
