@@ -57,7 +57,8 @@ internal class Program
         //RemoveKthNodeFromEndLogic.RemoveKthNodeFromEndLogicTest();
         //KadanesAlgorithmLogic.KadanesAlgorithmTest();
 
-        MinMaxStackDemo.Test();
+        //MinMaxStackDemo.Test();
+        ReverseWordsInStringDemo.Demo();
     }
 
     private static void TestDLL()
