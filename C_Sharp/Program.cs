@@ -7,6 +7,7 @@ using C_Sharp.Answers.Strings;
 using C_Sharp.Answers.LLs;
 using C_Sharp.Answers.LLs.DLLs;
 using C_Sharp.Answers.FamousAlgorithms;
+using C_Sharp.Answers.Stacks;
 
 internal class Program
 {
@@ -54,7 +55,9 @@ internal class Program
         //TestDLL();
 
         //RemoveKthNodeFromEndLogic.RemoveKthNodeFromEndLogicTest();
-        KadanesAlgorithmLogic.KadanesAlgorithmTest();
+        //KadanesAlgorithmLogic.KadanesAlgorithmTest();
+
+        MinMaxStackDemo.Test();
     }
 
     private static void TestDLL()

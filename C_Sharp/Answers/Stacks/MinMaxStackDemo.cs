@@ -1,14 +1,43 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
-using System.Threading.Tasks;
+using static System.Console;
 
 namespace C_Sharp.Answers.Stacks
 {
     public class MinMaxStackDemo
     {
+        public static void Test()
+        {
+            var stack = new MinMaxStack();
+            stack.Push(5);
+            WriteLine(stack);
+            WriteLine(stack.GetMin());
+            WriteLine(stack.GetMax());
+            WriteLine(stack.Peek());
+            
+            stack.Push(7);
+            WriteLine(stack);
+
+            WriteLine(stack.GetMin());
+            WriteLine(stack.GetMax());
+            WriteLine(stack.Peek());
+            stack.Push(2);
+            WriteLine(stack);
+
+            WriteLine(stack.GetMin());
+            WriteLine(stack.GetMax());
+            WriteLine(stack.Peek());
+
+            WriteLine(stack.Pop());
+            WriteLine(stack);
+
+            WriteLine(stack.Pop());
+            WriteLine(stack);
+
+            WriteLine(stack.GetMin());
+            WriteLine(stack.GetMax());
+            WriteLine(stack.Peek());
+
+        }
 
     }
 
@@ -56,13 +85,15 @@ namespace C_Sharp.Answers.Stacks
             return new Number
             {
                 Num = number,
-                Min = Math.Min(number, peeked.Min),
-                Max = Math.Max(number, peeked.Max)
+                Min = peeked == null ? number : Math.Min(number, peeked.Min),
+                Max = peeked == null ? number : Math.Max(number, peeked.Max)
             };
         }
 
         private Number PeekNum()
         {
+            if (_nums.Count == 0)
+                return null;
             return _nums[_nums.Count - 1];
         }
 
