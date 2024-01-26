@@ -58,7 +58,9 @@ internal class Program
         //KadanesAlgorithmLogic.KadanesAlgorithmTest();
 
         //MinMaxStackDemo.Test();
-        ReverseWordsInStringDemo.Demo();
+        //ReverseWordsInStringDemo.Demo();
+
+        SortStackDemo.Demo();
     }
 
     private static void TestDLL()
