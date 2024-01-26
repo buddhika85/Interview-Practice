@@ -40,7 +40,11 @@ namespace C_Sharp.Answers.LLs.SumOfLLs
             PopulateLinkedList(linkedListTwo, new List<int> { 4, 5 });
             WriteLine(linkedListOne);
             WriteLine(linkedListTwo);
+
             var sumLinkedList = sumOfLLsDemo.SumOfLinkedLists(linkedListOne, linkedListTwo);
+            WriteLine(sumLinkedList);
+
+            sumLinkedList = sumOfLLsDemo.SumOfLinkedListsOptimal(linkedListOne, linkedListTwo);
             WriteLine(sumLinkedList);
         }
 
@@ -56,6 +60,66 @@ namespace C_Sharp.Answers.LLs.SumOfLLs
             tempLinkedList.next = new LinkedList(first);
             PopulateLinkedList(linkedList, nums);
         }
+
+        public LinkedList SumOfLinkedListsOptimal(LinkedList linkedListOne, LinkedList linkedListTwo)
+        {
+            LinkedList linkedList = null;
+            LinkedList lastNode = null;
+            var toAdd = 0;
+            while(linkedListOne != null || linkedListTwo != null)
+            {
+                var sum = GetSum(linkedListOne, linkedListTwo);
+                if (linkedList == null)
+                {                    
+                    var toUse = 0;
+                    if (sum < 10)
+                    {
+                        toUse = sum;
+                        toAdd = 0;
+                    }
+                    else
+                    {
+                        toUse = sum - 10;
+                        toAdd = 1;
+                    }
+                    linkedList = new LinkedList(toUse);
+                    lastNode = linkedList;
+                }
+                else
+                {
+                    sum += toAdd;
+                    var toUse = 0;
+                    if (sum < 10)
+                    {
+                        toUse = sum;
+                        toAdd = 0;
+                    }
+                    else
+                    {
+                        toUse = sum - 10;
+                        toAdd = 1;
+                    }
+                    lastNode.next = new LinkedList(toUse);
+                    lastNode = lastNode.next;
+                }
+                linkedListOne = linkedListOne?.next;
+                linkedListTwo = linkedListTwo?.next;
+            }
+            return linkedList;
+        } 
+
+
+
+        public int GetSum(LinkedList linkedListOne, LinkedList linkedListTwo)
+        {
+            var sum = 0;
+            if (linkedListOne != null)
+                sum += linkedListOne.value;
+            if (linkedListTwo != null)
+                sum += linkedListTwo.value;
+            return sum;
+        }
+
 
         public LinkedList SumOfLinkedLists(LinkedList linkedListOne, LinkedList linkedListTwo)
         {
