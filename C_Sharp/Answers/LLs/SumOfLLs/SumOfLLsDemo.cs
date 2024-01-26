@@ -1,5 +1,6 @@
 using static System.Console;
 using System.Text;
+using System.Linq;
 
 namespace C_Sharp.Answers.LLs.SumOfLLs
 {
@@ -61,10 +62,10 @@ namespace C_Sharp.Answers.LLs.SumOfLLs
             int numOne = GetNumber(linkedListOne);
             int numTwo = GetNumber(linkedListTwo);
             string sum = $"{numOne + numTwo}";
-            return GenerateLinkedList(sum);
+            return GenerateLinkedList(sum.Reverse());
         }
 
-        private LinkedList GenerateLinkedList(string sum)
+        private LinkedList GenerateLinkedList(IEnumerable<char> sum)
         {
             LinkedList resultHead = null;
             LinkedList lastNode = null;
