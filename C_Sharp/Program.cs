@@ -8,6 +8,7 @@ using C_Sharp.Answers.LLs;
 using C_Sharp.Answers.LLs.DLLs;
 using C_Sharp.Answers.FamousAlgorithms;
 using C_Sharp.Answers.Stacks;
+using C_Sharp.Answers.LLs.SumOfLLs;
 
 internal class Program
 {
@@ -60,7 +61,8 @@ internal class Program
         //MinMaxStackDemo.Test();
         //ReverseWordsInStringDemo.Demo();
 
-        SortStackDemo.Demo();
+        //SortStackDemo.Demo();
+        SumOfLLsDemo.Demo();
     }
 
     private static void TestDLL()
