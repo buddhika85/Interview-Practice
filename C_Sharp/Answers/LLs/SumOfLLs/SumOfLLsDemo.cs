@@ -34,12 +34,24 @@ namespace C_Sharp.Answers.LLs.SumOfLLs
         public static void Demo()
         {
             SumOfLLsDemo sumOfLLsDemo = new();
+
+            // case 1 - works
+            // var linkedListOne = new LinkedList(2);
+            // var linkedListTwo = new LinkedList(9);
+            // PopulateLinkedList(linkedListOne, new List<int> { 4, 7, 1 });
+            // PopulateLinkedList(linkedListTwo, new List<int> { 4, 5 });
+            // WriteLine(linkedListOne);
+            // WriteLine(linkedListTwo);
+
+            // var sumLinkedList = sumOfLLsDemo.SumOfLinkedLists(linkedListOne, linkedListTwo);
+            // WriteLine(sumLinkedList);
+
+            // sumLinkedList = sumOfLLsDemo.SumOfLinkedListsOptimal(linkedListOne, linkedListTwo);
+            // WriteLine(sumLinkedList);
+
+            // case 2 
             var linkedListOne = new LinkedList(2);
             var linkedListTwo = new LinkedList(9);
-            PopulateLinkedList(linkedListOne, new List<int> { 4, 7, 1 });
-            PopulateLinkedList(linkedListTwo, new List<int> { 4, 5 });
-            WriteLine(linkedListOne);
-            WriteLine(linkedListTwo);
 
             var sumLinkedList = sumOfLLsDemo.SumOfLinkedLists(linkedListOne, linkedListTwo);
             WriteLine(sumLinkedList);
@@ -71,44 +83,40 @@ namespace C_Sharp.Answers.LLs.SumOfLLs
                 var sum = GetSum(linkedListOne, linkedListTwo);
                 if (linkedList == null)
                 {                    
-                    var toUse = 0;
-                    if (sum < 10)
-                    {
-                        toUse = sum;
-                        toAdd = 0;
-                    }
-                    else
-                    {
-                        toUse = sum - 10;
-                        toAdd = 1;
-                    }
+                    var toUse = FindToUse(out toAdd, sum);
                     linkedList = new LinkedList(toUse);
                     lastNode = linkedList;
                 }
                 else
                 {
                     sum += toAdd;
-                    var toUse = 0;
-                    if (sum < 10)
-                    {
-                        toUse = sum;
-                        toAdd = 0;
-                    }
-                    else
-                    {
-                        toUse = sum - 10;
-                        toAdd = 1;
-                    }
+                    var toUse = FindToUse(out toAdd, sum);
                     lastNode.next = new LinkedList(toUse);
                     lastNode = lastNode.next;
                 }
                 linkedListOne = linkedListOne?.next;
                 linkedListTwo = linkedListTwo?.next;
             }
+            if (toAdd > 0)
+                lastNode.next = new LinkedList(toAdd);
             return linkedList;
-        } 
+        }
 
-
+        private int FindToUse(out int toAdd, int sum)
+        {
+            int toUse = 0;
+            if (sum < 10)
+            {
+                toUse = sum;
+                toAdd = 0;
+            }
+            else
+            {
+                toUse = sum - 10;
+                toAdd = 1;
+            }
+            return toUse;
+        }
 
         public int GetSum(LinkedList linkedListOne, LinkedList linkedListTwo)
         {
