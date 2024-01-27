@@ -62,7 +62,9 @@ internal class Program
         //ReverseWordsInStringDemo.Demo();
 
         //SortStackDemo.Demo();
-        SumOfLLsDemo.Demo();
+        //SumOfLLsDemo.Demo();
+
+        GroupAnagramsDemo.Demo();
     }
 
     private static void TestDLL()
