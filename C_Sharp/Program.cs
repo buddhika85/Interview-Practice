@@ -64,7 +64,9 @@ internal class Program
         //SortStackDemo.Demo();
         //SumOfLLsDemo.Demo();
 
-        GroupAnagramsDemo.Demo();
+        //GroupAnagramsDemo.Demo();
+
+        OneEditDemo.Test();
     }
 
     private static void TestDLL()
