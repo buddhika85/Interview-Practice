@@ -24,7 +24,7 @@ namespace C_Sharp.Answers.Strings
                 // ("abbc", "acbb"),
                 // ("abab", "baba"),
 
-                ("a", "bb"),                
+                ("a", "bb"),
                 ("ba", "bba")
             };
             var oneEditDemo = new OneEditDemo();
@@ -42,11 +42,8 @@ namespace C_Sharp.Answers.Strings
             var stringOneIndex = 0;
             var stringTwoIndex = 0;
             var oneEditUsed = false;
-            while(stringOneIndex < stringOne.Length || stringTwoIndex < stringTwo.Length)
+            while(stringOneIndex < stringOne.Length && stringTwoIndex < stringTwo.Length)
             {
-                // // // if (oneEditUsed && (stringOneIndex < stringOne.Length - 1 || stringTwoIndex < stringTwo.Length - 1))
-                // // //     return false;       // means we need one more edits in one string
-
                 if (stringOne[stringOneIndex] != stringTwo[stringTwoIndex])
                 {
                     if (oneEditUsed)
@@ -63,13 +60,23 @@ namespace C_Sharp.Answers.Strings
                         {
                             stringTwoIndex++;
                         }
+                        else
+                        {
+                            ++stringOneIndex;
+                            ++stringTwoIndex;
+                        }
                         oneEditUsed = true;
                     }
                 }
-
-                ++stringOneIndex;
-                ++stringTwoIndex;
+                else
+                {
+                    ++stringOneIndex;
+                    ++stringTwoIndex;
+                }
             }
+
+            if (lengthGap > 1 || (lengthGap == 1 && ((stringOne.Length > stringTwo.Length && stringOneIndex == stringOne.Length - 1) || (stringTwo.Length > stringOne.Length && stringTwoIndex == stringTwo.Length - 1))))
+                return false;
 
             return true;
         }
