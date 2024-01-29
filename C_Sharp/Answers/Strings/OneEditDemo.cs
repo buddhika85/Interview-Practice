@@ -74,10 +74,6 @@ namespace C_Sharp.Answers.Strings
                     ++stringTwoIndex;
                 }
             }
-
-            if (lengthGap > 1 || (lengthGap == 1 && ((stringOne.Length > stringTwo.Length && stringOneIndex == stringOne.Length - 1) || (stringTwo.Length > stringOne.Length && stringTwoIndex == stringTwo.Length - 1))))
-                return false;
-
             return true;
         }
 
