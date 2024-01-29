@@ -66,7 +66,8 @@ internal class Program
 
         //GroupAnagramsDemo.Demo();
 
-        OneEditDemo.Test();
+        //OneEditDemo.Test();
+        MinimumCharactersForWordsDemo.Test();
     }
 
     private static void TestDLL()
