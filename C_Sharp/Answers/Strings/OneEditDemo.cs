@@ -22,7 +22,9 @@ namespace C_Sharp.Answers.Strings
                 ("h", "hllo"),
                 ("hllo", "he99llo"),
                 ("abbc", "acbb"),
-                ("abab", "baba")
+                ("abab", "baba"),
+
+                ("a", "bb")
             };
             var oneEditDemo = new OneEditDemo();
             values.ForEach(x => {
@@ -32,14 +34,14 @@ namespace C_Sharp.Answers.Strings
 
         public bool OneEdit(string stringOne, string stringTwo)
         {
-            if (Math.Abs(stringOne.Length - stringOne.Length) > 1)
+            if (Math.Abs(stringOne.Length - stringTwo.Length) > 1)
                 return false;
             
             var stringOneIndex = 0;
             var stringTwoIndex = 0;
             var oneEditUsed = false;
             while(stringOneIndex < stringOne.Length && stringTwoIndex < stringTwo.Length)
-            {
+            {              
                 if (stringOne[stringOneIndex] != stringTwo[stringTwoIndex])
                 {
                     if (oneEditUsed)
@@ -62,6 +64,11 @@ namespace C_Sharp.Answers.Strings
 
                 ++stringOneIndex;
                 ++stringTwoIndex;
+            }
+
+            if (oneEditUsed && stringOne.Length != stringTwo.Length)
+            {
+                return false;
             }
 
             return true;
