@@ -18,13 +18,14 @@ namespace C_Sharp.Answers.Strings
                 ("a", "a"),
                 ("a", "b"),
 
-                ("hello", "hol"),
-                ("h", "hllo"),
-                ("hllo", "he99llo"),
-                ("abbc", "acbb"),
-                ("abab", "baba"),
+                // ("hello", "hol"),
+                // ("h", "hllo"),
+                // ("hllo", "he99llo"),
+                // ("abbc", "acbb"),
+                // ("abab", "baba"),
 
-                ("a", "bb")
+                ("a", "bb"),                
+                ("ba", "bba")
             };
             var oneEditDemo = new OneEditDemo();
             values.ForEach(x => {
@@ -34,14 +35,18 @@ namespace C_Sharp.Answers.Strings
 
         public bool OneEdit(string stringOne, string stringTwo)
         {
-            if (Math.Abs(stringOne.Length - stringTwo.Length) > 1)
+            var lengthGap = Math.Abs(stringOne.Length - stringTwo.Length);
+            if (lengthGap > 1)
                 return false;
-            
+
             var stringOneIndex = 0;
             var stringTwoIndex = 0;
             var oneEditUsed = false;
-            while(stringOneIndex < stringOne.Length && stringTwoIndex < stringTwo.Length)
-            {              
+            while(stringOneIndex < stringOne.Length || stringTwoIndex < stringTwo.Length)
+            {
+                // // // if (oneEditUsed && (stringOneIndex < stringOne.Length - 1 || stringTwoIndex < stringTwo.Length - 1))
+                // // //     return false;       // means we need one more edits in one string
+
                 if (stringOne[stringOneIndex] != stringTwo[stringTwoIndex])
                 {
                     if (oneEditUsed)
@@ -57,18 +62,13 @@ namespace C_Sharp.Answers.Strings
                         else if (stringOne.Length < stringTwo.Length)
                         {
                             stringTwoIndex++;
-                        }                       
+                        }
                         oneEditUsed = true;
                     }
                 }
 
                 ++stringOneIndex;
                 ++stringTwoIndex;
-            }
-
-            if (oneEditUsed && stringOne.Length != stringTwo.Length)
-            {
-                return false;
             }
 
             return true;
