@@ -38,7 +38,7 @@ namespace C_Sharp.Answers.LLs.MergeLLs
 
         public static void Demo()
         {
-             var common = new LinkedList(1);
+            var common = new LinkedList(1);
             common.next = new LinkedList(4);
             
             var linkedListOne = new LinkedList(2);
@@ -50,6 +50,19 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             linkedListTwo.next.next = common;
 
             var mergingLinkedListsDemo = new MergingLinkedListsDemo();
+            WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
+
+            // case 2
+            common = new LinkedList(3);
+            common.next = new LinkedList(4);
+            
+            linkedListOne = new LinkedList(1);
+            linkedListOne.next = new LinkedList(2);
+            linkedListOne.next.next = common;
+
+            linkedListTwo = new LinkedList(5);
+            linkedListTwo.next = common;
+
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
         }
 
@@ -66,11 +79,11 @@ namespace C_Sharp.Answers.LLs.MergeLLs
 
             if (linkedListOneLength > linkedListTwoLength)
             {
-                SetStartNode(linkedListOne, linkedListOneLength - linkedListTwoLength);
+                linkedListOne = SetStartNode(linkedListOne, linkedListOneLength - linkedListTwoLength);
             }
             else if (linkedListTwoLength < linkedListOneLength)
             {
-                SetStartNode(linkedListTwo, linkedListTwoLength - linkedListOneLength);
+                linkedListTwo = SetStartNode(linkedListTwo, linkedListTwoLength - linkedListOneLength);
             }
 
             while (linkedListOne != null && linkedListTwo != null)
@@ -83,13 +96,14 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             return null;
         }
 
-        private void SetStartNode(LinkedList linkedList, int toMoveFwd)
+        private LinkedList SetStartNode(LinkedList linkedList, int toMoveFwd)
         {
             while(toMoveFwd > 0)
             {
                 linkedList = linkedList.next;
                 --toMoveFwd;
             }
+            return linkedList;
         }
 
         private int GetLinkedListLength(LinkedList linkedList)
