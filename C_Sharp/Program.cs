@@ -10,6 +10,7 @@ using C_Sharp.Answers.FamousAlgorithms;
 using C_Sharp.Answers.Stacks;
 using C_Sharp.Answers.LLs.SumOfLLs;
 using C_Sharp.Answers.LLs.MergeLLs;
+using C_Sharp.Answers.Sorting;
 
 internal class Program
 {
@@ -70,7 +71,9 @@ internal class Program
         //OneEditDemo.Test();
         //MinimumCharactersForWordsDemo.Test();
 
-        MergingLinkedListsDemo.Demo();
+        //MergingLinkedListsDemo.Demo();
+
+        SelectionSortDemo.Demo();
     }
 
     private static void TestDLL()
