@@ -9,6 +9,7 @@ using C_Sharp.Answers.LLs.DLLs;
 using C_Sharp.Answers.FamousAlgorithms;
 using C_Sharp.Answers.Stacks;
 using C_Sharp.Answers.LLs.SumOfLLs;
+using C_Sharp.Answers.LLs.MergeLLs;
 
 internal class Program
 {
@@ -67,7 +68,9 @@ internal class Program
         //GroupAnagramsDemo.Demo();
 
         //OneEditDemo.Test();
-        MinimumCharactersForWordsDemo.Test();
+        //MinimumCharactersForWordsDemo.Test();
+
+        MergingLinkedListsDemo.Demo();
     }
 
     private static void TestDLL()
