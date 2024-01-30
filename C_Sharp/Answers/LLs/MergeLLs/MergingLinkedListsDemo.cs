@@ -77,7 +77,20 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
         }
 
+        // Time complexity
+        // O(n) + O(m) + O(n - m) or O(m - n) + O(n - m) or O(m - n)
+        // assuming n > m 
+        // O(n) + O(n) + O(n - m) + O(n - m)
+        // 2 O(n) + 2 O(n - m)
+        // dropping constats 
+        // O(n) + O(n - m)
+        // worst case n >>>>>>> m --> n is very large comparing m
+        // 2 O(n)
+        // dropping constats
+        // O(n)
 
+        // space comlexity
+        // O(1) --> we did not use any additional space
         public LinkedList MergingLinkedLists(LinkedList linkedListOne, LinkedList linkedListTwo)
         {
             if (linkedListOne == null || linkedListTwo == null)
@@ -85,19 +98,19 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             if (linkedListOne == linkedListTwo)
                 return linkedListOne;
 
-            var linkedListOneLength = GetLinkedListLength(linkedListOne);
-            var linkedListTwoLength = GetLinkedListLength(linkedListTwo);
+            var linkedListOneLength = GetLinkedListLength(linkedListOne);   // O(n)
+            var linkedListTwoLength = GetLinkedListLength(linkedListTwo);   // O(m)
 
             if (linkedListOneLength > linkedListTwoLength)
             {
-                linkedListOne = SetStartNode(linkedListOne, linkedListOneLength - linkedListTwoLength);
+                linkedListOne = SetStartNode(linkedListOne, linkedListOneLength - linkedListTwoLength);     // O(n - m)
             }
             else if (linkedListTwoLength > linkedListOneLength)
             {
-                linkedListTwo = SetStartNode(linkedListTwo, linkedListTwoLength - linkedListOneLength);
+                linkedListTwo = SetStartNode(linkedListTwo, linkedListTwoLength - linkedListOneLength);     // O(m - n)
             }
 
-            while (linkedListOne != null && linkedListTwo != null)
+            while (linkedListOne != null && linkedListTwo != null)      // O(n - m) or O(m - n)
             {
                 if (linkedListOne == linkedListTwo)
                     return linkedListOne;
