@@ -82,11 +82,11 @@ namespace C_Sharp.Answers.LLs.MergeLLs
         // assuming n > m 
         // O(n) + O(n) + O(n - m) + O(n - m)
         // 2 O(n) + 2 O(n - m)
-        // dropping constats 
+        // dropping constants 
         // O(n) + O(n - m)
         // worst case n >>>>>>> m --> n is very large comparing m
         // 2 O(n)
-        // dropping constats
+        // dropping constants
         // O(n)
 
         // space comlexity
