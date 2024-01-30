@@ -64,6 +64,17 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             linkedListTwo.next = common;
 
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
+
+            // case 3
+            common = new LinkedList(1);
+            linkedListOne = common;
+
+            linkedListTwo = new LinkedList(2);
+            linkedListTwo.next = new LinkedList(3);
+            linkedListTwo.next.next = new LinkedList(4);
+            linkedListTwo.next.next.next = common;
+
+            WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
         }
 
 
@@ -81,7 +92,7 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             {
                 linkedListOne = SetStartNode(linkedListOne, linkedListOneLength - linkedListTwoLength);
             }
-            else if (linkedListTwoLength < linkedListOneLength)
+            else if (linkedListTwoLength > linkedListOneLength)
             {
                 linkedListTwo = SetStartNode(linkedListTwo, linkedListTwoLength - linkedListOneLength);
             }
