@@ -36,16 +36,21 @@ namespace C_Sharp.Answers.LLs.FindLoop
 
             WriteLine($"{FindLoop(linkedList).value}");
         }
+        
+        // Time - O(n)
+        // Space - O(1)   --> we did not use any additional space
         public static LinkedList FindLoop(LinkedList head)
         {
             if (head == null)
                 return null;
-            var alreadySeen = new Dictionary<LinkedList, bool>();
-            alreadySeen.Add(head, true);
-            head = head.next;
-            while(head != null)
+            var alreadySeen = new Dictionary<LinkedList, bool>
             {
-                alreadySeen.TryGetValue(head, out bool found);
+                { head, true }
+            };
+            head = head.next;
+            while(head != null)                                         // O(n)
+            {
+                alreadySeen.TryGetValue(head, out bool found);          // O(1) --> dictionaries access in costant time
                 if (found)
                     return head;
                 else
