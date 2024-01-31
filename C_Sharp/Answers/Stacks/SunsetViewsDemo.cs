@@ -20,7 +20,7 @@ namespace C_Sharp.Answers.Stacks
         }
 
         // Time - O(n)  --> only one loop
-        // Space - O(1) --> we did not use any additional space
+        // Space - O(n) --> we did use additional space to store results which would be maximum of n length (buildings arrays length)
         public List<int> SunsetViews(int[] buildings, string direction)
         {
             var indexes = new List<int>();
