@@ -72,11 +72,12 @@ internal class Program
         //OneEditDemo.Test();
         //MinimumCharactersForWordsDemo.Test();
 
-        MergingLinkedListsDemo.Demo();
+        //MergingLinkedListsDemo.Demo();
 
         //SelectionSortDemo.Demo();
 
         //FindLoopDemo.Demo();
+        SunsetViewsDemo.Demo();
     }
 
     private static void TestDLL()
