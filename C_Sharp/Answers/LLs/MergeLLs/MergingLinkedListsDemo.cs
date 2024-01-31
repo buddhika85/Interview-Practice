@@ -51,6 +51,7 @@ namespace C_Sharp.Answers.LLs.MergeLLs
 
             var mergingLinkedListsDemo = new MergingLinkedListsDemo();
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
+            WriteLine($"{mergingLinkedListsDemo.MergingLinkedListsAlternative(linkedListOne, linkedListTwo)}");
 
             // case 2
             common = new LinkedList(3);
@@ -64,6 +65,7 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             linkedListTwo.next = common;
 
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
+            WriteLine($"{mergingLinkedListsDemo.MergingLinkedListsAlternative(linkedListOne, linkedListTwo)}");
 
             // case 3
             common = new LinkedList(1);
@@ -75,6 +77,53 @@ namespace C_Sharp.Answers.LLs.MergeLLs
             linkedListTwo.next.next.next = common;
 
             WriteLine($"{mergingLinkedListsDemo.MergingLinkedLists(linkedListOne, linkedListTwo)}");
+            WriteLine($"{mergingLinkedListsDemo.MergingLinkedListsAlternative(linkedListOne, linkedListTwo)}");
+        }
+
+        public LinkedList MergingLinkedListsAlternative(LinkedList linkedListOne, LinkedList linkedListTwo)
+        {
+            if (linkedListOne == null || linkedListTwo == null)
+                return null;
+            
+            var pointerOne = linkedListOne;
+            var pointerTwo = linkedListTwo;
+            var reassignedOne = false;
+            var reassignedTwo = false;
+
+            while(pointerOne != pointerTwo)
+            {
+                if (pointerOne.next == null)
+                {
+                    if (reassignedOne)
+                        return null;
+                    else
+                    {
+                        pointerOne = linkedListTwo;
+                        reassignedOne = true;
+                    }
+                }
+                else
+                {
+                    pointerOne = pointerOne.next;
+                }
+
+                if (pointerTwo.next == null)
+                {
+                    if (reassignedTwo)
+                        return null;
+                    else
+                    {
+                        pointerTwo = linkedListOne;
+                        reassignedTwo = true;
+                    }
+                }
+                else
+                {
+                    pointerTwo = pointerTwo.next;
+                }
+            }
+
+            return pointerOne;
         }
 
         // Time complexity
