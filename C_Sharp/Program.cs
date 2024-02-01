@@ -12,6 +12,7 @@ using C_Sharp.Answers.LLs.SumOfLLs;
 using C_Sharp.Answers.LLs.MergeLLs;
 using C_Sharp.Answers.Sorting;
 using C_Sharp.Answers.LLs.FindLoop;
+using C_Sharp.Answers.LLs.ReverseLinkedList;
 
 internal class Program
 {
@@ -77,7 +78,9 @@ internal class Program
         //SelectionSortDemo.Demo();
 
         //FindLoopDemo.Demo();
-        SunsetViewsDemo.Demo();
+        //SunsetViewsDemo.Demo();
+
+        ReverseLinkedListDemo.Test();
     }
 
     private static void TestDLL()
