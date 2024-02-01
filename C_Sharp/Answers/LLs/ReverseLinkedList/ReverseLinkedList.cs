@@ -22,6 +22,8 @@ namespace C_Sharp.Answers.LLs.ReverseLinkedList
             WriteLine($"{ReverseLinkedList(linkedList)}");
         }
 
+        // Time complexity : O(n) --> we need to go through entire linked list
+        // Space : O(1) --> we did not use any additional space, we did the reverse in place
         public static LinkedList ReverseLinkedList(LinkedList head)
         {
             var pointerOne = head;
