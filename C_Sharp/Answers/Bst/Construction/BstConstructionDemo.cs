@@ -51,10 +51,34 @@ namespace C_Sharp.Answers.Bst.Construction
             return this;
         }
 
-        public bool Contains(int value)
+        public bool Contains(int toSearch)
         {
-            // Write your code here.
-            return false;
+            if (toSearch == value)
+            {
+              return true;
+            }
+            else if (toSearch < value)
+            {
+              if (left == null)
+              {
+                return false;
+              }
+              else
+              {
+                return left.Contains(toSearch);
+              }
+            }
+            else
+            {
+              if (right == null)
+              {
+                return false;
+              }
+              else
+              {
+                return right.Contains(toSearch);
+              }
+            }
         }
 
         public BST Remove(int value)
