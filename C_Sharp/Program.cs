@@ -13,6 +13,7 @@ using C_Sharp.Answers.LLs.MergeLLs;
 using C_Sharp.Answers.Sorting;
 using C_Sharp.Answers.LLs.FindLoop;
 using C_Sharp.Answers.LLs.ReverseLinkedList;
+using C_Sharp.Answers.Bst.Construction;
 
 internal class Program
 {
@@ -579,7 +580,7 @@ internal class Program
     private static void BstConstructionTests()
     {
         var nums = new[] { 5, 15, 2, 5, 13, 22, 1, 14 };
-        C_Sharp.Answers.Bst.BST bst = new(10);
+        C_Sharp.Answers.Bst.Construction.BST bst = new(10);
         foreach (var item in nums)
         {
             bst.Insert(item);
