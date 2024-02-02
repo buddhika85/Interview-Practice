@@ -54,6 +54,11 @@ namespace C_Sharp.Answers.Bst.Construction
             this.value = value;
         }
 
+        // Recurisive
+        // Average Time : O(log (n))
+        // Average space : O(log (n))
+        // Worst Time : O(n)
+        // Worst space : O(n)
         public BST Insert(int toInsert)
         {
             if (toInsert < value)
@@ -83,6 +88,11 @@ namespace C_Sharp.Answers.Bst.Construction
             return this;
         }
 
+        // Iterative
+        // Average Time : O(log (n))
+        // Average space : O(1)
+        // worst Time :O(n)
+        // worst space : O(1)
         public BST InsertIterative(int toInsert)
         {
           var tree = this;
@@ -155,7 +165,7 @@ namespace C_Sharp.Answers.Bst.Construction
           var tree = this;
           while(tree != null)
           {
-            if (toSearch  == tree.value)
+            if (toSearch == tree.value)
             {
               return true;
             }
@@ -171,7 +181,7 @@ namespace C_Sharp.Answers.Bst.Construction
           return false;
         }
         
-        public BST Remove(int value)
+        public BST Remove(int removeValue, BST parentNode = null)
         {
             // Find the Node
             // 1 If the node to remove is a leaf - just remove it
@@ -179,9 +189,99 @@ namespace C_Sharp.Answers.Bst.Construction
             // 3 If the node to remove is has 2 children - Find in order predesesor/successor of the node to remove 
             //  3.1 remove it and in order predesesor/successor in the place of removed
 
+            // Find the Node
+            var currentNode = this;
+            while(currentNode != null)
+            {
+              if (removeValue < currentNode.value)
+              {
+                // go left
+                parentNode = currentNode;
+                currentNode = parentNode.left;
+              }
+              else if (removeValue > currentNode.value)
+              {
+                // go right
+                parentNode = currentNode;
+                currentNode = currentNode.right;
+              }
+              else
+              {
+                if (currentNode.left != null && currentNode.right != null)
+                {
+                  // case 3: its a node with 2 immediate children
+                  // get right sub trees min value and assign it to node to remove
+                  currentNode.value = currentNode.right.GetMin();
+                  // remove the right sub trees min value node
+                  currentNode.right.Remove(currentNode.value, currentNode);
+                }
+                else if (parentNode == null)
+                {
+                  // means we are removing root
+                  if (currentNode.left != null)
+                  {
+                    currentNode.value = currentNode.left.value;
+                    currentNode.right = currentNode.left.right;
+                    currentNode.left = currentNode.left.left;
+                  }
+                  else if (currentNode.right != null)
+                  {
+                    currentNode.value = currentNode.right.value;
+                    currentNode.left = currentNode.right.left;
+                    currentNode.right = currentNode.right.right;
+                  }
+                  else
+                  {
+                    // single node BST
+                    // do nothing - as if this gets deleted, you are deleting the tree itself
+                    //currentNode = null;
+                  }
+
+                }
+                else if (parentNode.left == currentNode)
+                {
+                  // case 2: one child node
+                  if (currentNode.left != null)
+                  {
+                    // take currents left child node
+                    parentNode.left = currentNode.left;
+                  }
+                  else if (currentNode.right != null)
+                  {
+                    // take currents right child node
+                    parentNode.right = currentNode.right;
+                  }
+                }
+                else if (parentNode.right == currentNode)
+                {
+                  // case 2: one child node
+                  if (currentNode.right != null)
+                  {
+                    // take currents right child node
+                    parentNode.left = currentNode.right;
+                  }
+                  else if (currentNode.left != null)
+                  {
+                    // take currents left child node
+                    parentNode.right = currentNode.left;
+                  }
+                }
+                break;
+              }
+            }
 
             // Do not edit the return statement of this method.
             return this;
+        }
+
+        private int GetMin()
+        {
+          BST bst = this;
+          while(bst.left != null)
+          {
+            bst = bst.left;
+          }
+          return bst.value;
         }
     }
 }
