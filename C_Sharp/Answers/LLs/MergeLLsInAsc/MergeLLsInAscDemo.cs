@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace C_Sharp.Answers.LLs.MergeLLsInAsc
 {
@@ -9,6 +11,21 @@ namespace C_Sharp.Answers.LLs.MergeLLsInAsc
     {
         public static void Demo()
         {
+            LinkedList headOne = new(2);
+            headOne.next = new(6);
+            headOne.next.next = new(7);
+            headOne.next.next.next = new(8);
+
+            LinkedList headTwo = new(1);
+            headTwo.next = new(3);
+            headTwo.next.next = new(4);
+            headTwo.next.next.next = new(5);
+            headTwo.next.next.next.next = new(9);
+            headTwo.next.next.next.next.next = new(10);
+
+            WriteLine($"{headOne}");
+            WriteLine($"{headTwo}");
+            WriteLine($"{mergeLinkedLists(headOne, headTwo)}");
         }
 
 
@@ -30,19 +47,19 @@ namespace C_Sharp.Answers.LLs.MergeLLsInAsc
             }
 
             merged.next = null;                      // break from remaining
-            LinkedList current = merged.next;        // last pointer of the merged
+            LinkedList current = merged;        // last pointer of the merged
             while(headOne != null || headTwo != null)
             {
-                if (headOne != null)
+                if (headOne == null)
                 {
                     // can add only head two
-                    current = headTwo;
+                    current.next = headTwo;
                     headTwo = headTwo.next;                    
                 }
-                else if (headTwo != null)
+                else if (headTwo == null)
                 {
                     // can add only head one
-                    current = headOne;
+                    current.next = headOne;
                     headOne = headOne.next;
                 }
                 else
@@ -51,17 +68,17 @@ namespace C_Sharp.Answers.LLs.MergeLLsInAsc
                     if (headOne.value <= headTwo.value)
                     {
                         // start with head one
-                        current = headOne;
+                        current.next = headOne;
                         headOne = headOne.next;                
                     }
                     else
                     {
                         // start with head two
-                        current = headTwo;
+                        current.next = headTwo;
                         headTwo = headTwo.next;
                     }
                 }
-                current.next = null;                // break from remaining
+                current = current.next;                // break from remaining
             }
            
             return merged;
@@ -77,6 +94,19 @@ namespace C_Sharp.Answers.LLs.MergeLLsInAsc
         {
             this.value = value;
             this.next = null;
+        }
+
+        public override string ToString()
+        {
+            var node = this;
+            StringBuilder sb = new();
+            sb.Append(node.value);
+            while (node.next != null)
+            {
+                node = node.next;
+                sb.Append($" --> {node.value}");
+            }
+            return sb.ToString();
         }
     }
 

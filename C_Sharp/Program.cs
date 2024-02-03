@@ -14,6 +14,7 @@ using C_Sharp.Answers.Sorting;
 using C_Sharp.Answers.LLs.FindLoop;
 using C_Sharp.Answers.LLs.ReverseLinkedList;
 using C_Sharp.Answers.Bst.Construction;
+using C_Sharp.Answers.LLs.MergeLLsInAsc;
 
 internal class Program
 {
@@ -83,7 +84,8 @@ internal class Program
 
         //ReverseLinkedListDemo.Test();
 
-        BstConstructionDemo.Demo();
+        //BstConstructionDemo.Demo();
+        MergeLLsInAscDemo.Demo();
     }
 
     private static void TestDLL()
