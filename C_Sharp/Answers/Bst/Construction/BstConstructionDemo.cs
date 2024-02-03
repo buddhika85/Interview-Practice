@@ -59,7 +59,7 @@ namespace C_Sharp.Answers.Bst.Construction
         // Average space : O(log (n))
         // Worst Time : O(n)
         // Worst space : O(n)
-        public BST Insert(int toInsert)
+        public BST InsertRecursive(int toInsert)
         {
             if (toInsert < value)
             {
@@ -93,7 +93,7 @@ namespace C_Sharp.Answers.Bst.Construction
         // Average space : O(1)
         // worst Time :O(n)
         // worst space : O(1)
-        public BST InsertIterative(int toInsert)
+        public BST Insert(int toInsert)
         {
           var tree = this;
           while(true)
@@ -127,7 +127,7 @@ namespace C_Sharp.Answers.Bst.Construction
           }
         }
 
-        public bool Contains(int toSearch)
+        public bool ContainsRecursive(int toSearch)
         {
             if (toSearch == value)
             {
@@ -157,7 +157,7 @@ namespace C_Sharp.Answers.Bst.Construction
             }
         }
 
-        public bool ContainsIterative(int toSearch)
+        public bool Contains(int toSearch)
         {
           if (value == toSearch)
             return true;
@@ -258,7 +258,7 @@ namespace C_Sharp.Answers.Bst.Construction
                   if (currentNode.right != null)
                   {
                     // take currents right child node
-                    parentNode.left = currentNode.right;
+                    parentNode.right = currentNode.right;
                   }
                   else if (currentNode.left != null)
                   {
