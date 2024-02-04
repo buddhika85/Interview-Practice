@@ -85,7 +85,9 @@ internal class Program
         //ReverseLinkedListDemo.Test();
 
         //BstConstructionDemo.Demo();
-        MergeLLsInAscDemo.Demo();
+        //MergeLLsInAscDemo.Demo();
+
+        KadanesAlgoTry2Demo.Demo();
     }
 
     private static void TestDLL()
