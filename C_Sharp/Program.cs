@@ -87,7 +87,8 @@ internal class Program
         //BstConstructionDemo.Demo();
         //MergeLLsInAscDemo.Demo();
 
-        KadanesAlgoTry2Demo.Demo();
+        //KadanesAlgoTry2Demo.Demo();
+        LongestSubstringWithoutDuplicationDemo.Demo();
     }
 
     private static void TestDLL()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace C_Sharp.Answers.Strings
 {
@@ -10,7 +11,9 @@ namespace C_Sharp.Answers.Strings
     {
         public static void Demo()
         {
-
+            var str = "clementiscap";
+            //str  = "abcdeabcdefc";
+            WriteLine($"{LongestSubstringWithoutDuplication(str)}");
         }
 
         public static string LongestSubstringWithoutDuplication(string str)
@@ -22,7 +25,9 @@ namespace C_Sharp.Answers.Strings
                 var foundIndex = current.IndexOf(str[i]);
                 if (foundIndex > -1)
                 {
-                    current = str.Substring(foundIndex + 1, i-foundIndex);                    
+                    //current = str.Substring(foundIndex + 1, i-foundIndex);   
+                    var start = foundIndex + 1;
+                    current = $"{current.Substring(start, current.Length - start)}{str[i]}";            
                 }
                 else
                 {
