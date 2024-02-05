@@ -27,7 +27,8 @@ namespace C_Sharp.Answers.Bst.Traversal
             bstOne.left.left.right = null;
             WriteLine($"Breadth First Search : [{BreadthFirstSearch(bstOne).Display(", ")}]");    // [10, 5, 15, 2, 5, 22, 1]
             WriteLine($"Depth First Search - In Order Traversal : [{InOrderTraverse(bstOne, new List<int>()).Display(", ")}]");    // [1, 2, 5, 5, 10, 15, 22]
-            WriteLine($"Depth First Search - Pre Order Traversal : [{PreOrderTraverse(bstOne, new List<int>()).Display(", ")}]");   //  [10, 5, 2, 1, 5, 15, 22]
+            WriteLine($"Depth First Search - Pre Order Traversal : [{PreOrderTraverse(bstOne, new List<int>()).Display(", ")}]");   // [10, 5, 2, 1, 5, 15, 22]
+            WriteLine($"Depth First Search - Post Order Traversal : [{PostOrderTraverse(bstOne, new List<int>()).Display(", ")}]"); // [1, 2, 5, 5, 22, 15, 10]
 
             BST bstTwo = new(20)
             {
@@ -49,6 +50,7 @@ namespace C_Sharp.Answers.Bst.Traversal
             WriteLine($"Breadth First Search : [{BreadthFirstSearch(bstTwo).Display(", ")}]");    // [20, 13, 40, 10, 13, 43, 8, 11, 41]
             WriteLine($"Depth First Search - In Order Traversal : [{InOrderTraverse(bstTwo, new List<int>()).Display(", ")}]");    // [8, 10, 11, 13, 13, 20, 40, 41, 43]
             WriteLine($"Depth First Search - Pre Order Traversal : [{PreOrderTraverse(bstTwo, new List<int>()).Display(", ")}]");   // [20, 13, 10, 8, 11, 13, 40, 43, 41]
+            WriteLine($"Depth First Search - Post Order Traversal : [{PostOrderTraverse(bstTwo, new List<int>()).Display(", ")}]"); // [8, 11, 10, 13, 13, 41, 43, 40, 20]
         }
 
         // Time: O(n)  --> because we used one loop [enque and deque and list.add are constant time operations]
@@ -103,8 +105,16 @@ namespace C_Sharp.Answers.Bst.Traversal
         // left, right, current
         public static List<int> PostOrderTraverse(BST tree, List<int> array)
         {
-            // Write your code here.
-            return new List<int>();
+            if (tree.left != null)
+            {
+                PostOrderTraverse(tree.left, array);
+            }
+            if (tree.right != null)
+            {
+                PostOrderTraverse(tree.right, array);
+            }
+            array.Add(tree.value);
+            return array;
         }
 
     }
