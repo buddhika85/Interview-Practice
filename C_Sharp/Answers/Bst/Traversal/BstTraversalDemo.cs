@@ -25,7 +25,8 @@ namespace C_Sharp.Answers.Bst.Traversal
 
             bstOne.left.left.left = new(1);
             bstOne.left.left.right = null;
-            WriteLine($"[{BreadthFirstSearch(bstOne).Display(", ")}]");    // [10, 5, 15, 2, 5, 22, 1]
+            WriteLine($"Breadth First Search : [{BreadthFirstSearch(bstOne).Display(", ")}]");    // [10, 5, 15, 2, 5, 22, 1]
+            WriteLine($"Depth First Search - In Order Traversal : [{InOrderTraverse(bstOne, new List<int>()).Display(", ")}]");    // [1, 2, 5, 5, 10, 15, 22]
 
             BST bstTwo = new(20)
             {
@@ -44,9 +45,12 @@ namespace C_Sharp.Answers.Bst.Traversal
 
             bstTwo.right.right.left = new(41);
             bstTwo.right.right.right = null;
-            WriteLine($"[{BreadthFirstSearch(bstTwo).Display(", ")}]");    // [20, 13, 40, 10, 13, 43, 8, 11, 41]
+            WriteLine($"Breadth First Search : [{BreadthFirstSearch(bstTwo).Display(", ")}]");    // [20, 13, 40, 10, 13, 43, 8, 11, 41]
+            WriteLine($"Depth First Search - In Order Traversal : [{InOrderTraverse(bstTwo, new List<int>()).Display(", ")}]");    // [8, 10, 11, 13, 13, 20, 40, 41, 43]
         }
 
+        // Time: O(n)  --> because we used one loop [enque and deque and list.add are constant time operations]
+        // Space - O(n)^2       --> because we used additionally a queue and a list of maximum length n
         public static List<int> BreadthFirstSearch(BST tree)
         {
             var queue = new Queue<BST>();
@@ -66,8 +70,16 @@ namespace C_Sharp.Answers.Bst.Traversal
 
         public static List<int> InOrderTraverse(BST tree, List<int> array)
         {
-            // Write your code here.
-            return new List<int>();
+            if (tree.left != null)
+            {
+                InOrderTraverse(tree.left, array);
+            }
+            array.Add(tree.value);
+            if (tree.right != null)
+            {
+                InOrderTraverse(tree.right, array);
+            }
+            return array;
         }
 
         public static List<int> PreOrderTraverse(BST tree, List<int> array)
