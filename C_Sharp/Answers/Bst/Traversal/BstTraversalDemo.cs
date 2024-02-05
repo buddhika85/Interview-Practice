@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using C_Sharp.Answers.Extensions;
 using static System.Console;
 
 namespace C_Sharp.Answers.Bst.Traversal
@@ -20,16 +21,17 @@ namespace C_Sharp.Answers.Bst.Traversal
             bstOne.left.right = new(5);
 
             bstOne.right.left = null;
-            bstOne.right.right = new(15);
+            bstOne.right.right = new(22);
 
             bstOne.left.left.left = new(1);
             bstOne.left.left.right = null;
-            WriteLine($"{BreadthFirstSearch(bstOne)}");
+            WriteLine($"[{BreadthFirstSearch(bstOne).Display(", ")}]");
         }
 
         public static List<int> BreadthFirstSearch(BST tree)
         {
-            var queue = new Queue<BST>(tree.value);
+            var queue = new Queue<BST>();
+            queue.Enqueue(tree);
             var list = new List<int>();
             while(queue.Count > 0)
             {
