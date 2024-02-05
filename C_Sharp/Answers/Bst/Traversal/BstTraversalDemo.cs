@@ -73,6 +73,8 @@ namespace C_Sharp.Answers.Bst.Traversal
         }
 
         // Left, Current, Right
+        // Time: O(n)  --> because we visit every node once
+        // Space - O(n)
         public static List<int> InOrderTraverse(BST tree, List<int> array)
         {
             if (tree.left != null)
@@ -88,6 +90,8 @@ namespace C_Sharp.Answers.Bst.Traversal
         }
 
         // current, Left, right
+        // Time: O(n)  --> because we visit every node once
+        // Space - O(n)
         public static List<int> PreOrderTraverse(BST tree, List<int> array)
         {
             array.Add(tree.value);
@@ -103,6 +107,8 @@ namespace C_Sharp.Answers.Bst.Traversal
         }
 
         // left, right, current
+        // Time: O(n)  --> because we visit every node once
+        // Space - O(n)
         public static List<int> PostOrderTraverse(BST tree, List<int> array)
         {
             if (tree.left != null)
