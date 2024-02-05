@@ -25,7 +25,26 @@ namespace C_Sharp.Answers.Bst.Traversal
 
             bstOne.left.left.left = new(1);
             bstOne.left.left.right = null;
-            WriteLine($"[{BreadthFirstSearch(bstOne).Display(", ")}]");
+            WriteLine($"[{BreadthFirstSearch(bstOne).Display(", ")}]");    // [10, 5, 15, 2, 5, 22, 1]
+
+            BST bstTwo = new(20)
+            {
+                left = new(13),
+                right = new(40)
+            };
+
+            bstTwo.left.left = new(10);
+            bstTwo.left.right = new(13);
+
+            bstTwo.right.left = null;
+            bstTwo.right.right = new(43);
+
+            bstTwo.left.left.left = new(8);
+            bstTwo.left.left.right = new(11);
+
+            bstTwo.right.right.left = new(41);
+            bstTwo.right.right.right = null;
+            WriteLine($"[{BreadthFirstSearch(bstTwo).Display(", ")}]");    // [20, 13, 40, 10, 13, 43, 8, 11, 41]
         }
 
         public static List<int> BreadthFirstSearch(BST tree)
@@ -33,7 +52,7 @@ namespace C_Sharp.Answers.Bst.Traversal
             var queue = new Queue<BST>();
             queue.Enqueue(tree);
             var list = new List<int>();
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 var dequeued = queue.Dequeue();
                 list.Add(dequeued.value);
