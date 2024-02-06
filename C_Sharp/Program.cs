@@ -16,6 +16,7 @@ using C_Sharp.Answers.LLs.ReverseLinkedList;
 using C_Sharp.Answers.Bst.Construction;
 using C_Sharp.Answers.LLs.MergeLLsInAsc;
 using C_Sharp.Answers.Bst.Traversal;
+using C_Sharp.Answers.Bst.ValidateBst;
 
 internal class Program
 {
@@ -91,7 +92,9 @@ internal class Program
         //KadanesAlgoTry2Demo.Demo();
         //LongestSubstringWithoutDuplicationDemo.Demo();
 
-        BstTraversalDemo.Demo();
+        //BstTraversalDemo.Demo();
+
+        ValidateBstDemo.Test();
     }
 
     private static void TestDLL()
