@@ -19,6 +19,8 @@ namespace C_Sharp.Answers.Sorting
         }
 
         #region try_tree
+        // Time - O(n)   --> one loop n number of iterations
+        // Space - O(1)  --> did not use any additional space while processing
         public static int[] FindThreeLargestNumbersTryThree(int[] array)
         {
             var results = new int[] {int.MinValue, int.MinValue, int.MinValue};
