@@ -45,7 +45,30 @@ namespace C_Sharp.Answers.Bst.ValidateBst
              WriteLine($"{ValidateBst(bstTwo)}");
         }
 
-        public static bool ValidateBst(BST tree) {
+        public static bool ValidateBst(BST tree) 
+        {
+            return ValidateBstHelper(tree, int.MinValue, int.MaxValue);
+        }
+
+        private static bool ValidateBstHelper(BST tree, int minValue, int maxValue)
+        {
+            if (tree == null)
+                return true;
+            if (tree.value < minValue || tree.value >= maxValue)
+                return false;
+            // means this node and its immediate children values are valid 
+
+            // now validate its left sub tree
+            if (!ValidateBstHelper(tree.left, minValue, tree.value))
+                return false;
+            // now validate its right sub tree
+            if (!ValidateBstHelper(tree.right, tree.value, maxValue))
+                return false;
+            return true;
+        }
+
+        // Below attemopt does not valdiate BST property correctly 
+        public static bool ValidateBstDoesNotWork(BST tree) {
             var queue = new Queue<BST>();
             queue.Enqueue(tree);
             while(queue.Count > 0)

@@ -17,6 +17,7 @@ using C_Sharp.Answers.Bst.Construction;
 using C_Sharp.Answers.LLs.MergeLLsInAsc;
 using C_Sharp.Answers.Bst.Traversal;
 using C_Sharp.Answers.Bst.ValidateBst;
+using C_Sharp.Answers.Bst.MinHeightBst;
 
 internal class Program
 {
@@ -94,7 +95,8 @@ internal class Program
 
         //BstTraversalDemo.Demo();
 
-        ValidateBstDemo.Test();
+        //ValidateBstDemo.Test();
+        MinHeightBstDemo.Demo();
     }
 
     private static void TestDLL()
