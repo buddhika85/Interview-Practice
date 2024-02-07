@@ -15,8 +15,53 @@ namespace C_Sharp.Answers.Sorting
             int[] array = new int[] {141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
             WriteLine($"{FindThreeLargestNumbers(array).Display(", ")}");
             WriteLine($"{FindThreeLargestNumbersSimplified(array).Display(", ")}");
+            WriteLine($"{FindThreeLargestNumbersTryThree(array).Display(", ")}");
         }
 
+        #region try_tree
+        public static int[] FindThreeLargestNumbersTryThree(int[] array)
+        {
+            var results = new int[] {int.MinValue, int.MinValue, int.MinValue};
+            for (int i = 0; i < array.Length; i++)
+            {
+                ShiftAndUpdate(results, array[i]);
+            }
+            return results;
+        }
+
+        private static void ShiftAndUpdate(int[] results, int value)
+        {
+            if (value > results[2])
+            {
+                Update(results, value, 2);
+            }
+            else if (value > results[1])
+            {
+                Update(results, value, 1);
+            }
+            else if (value > results[0])
+            {
+                Update(results, value, 0);
+            }
+        }
+
+        private static void Update(int[] results, int value, int index)
+        {
+            for (int i = 0; i <= index; i++)
+            {
+                if (i  == index)
+                {
+                    results[i] = value;
+                }
+                else
+                {
+                    results[i] = results[i + 1];
+                }
+            }
+        }
+        #endregion
+
+        #region try_two
         public static int[] FindThreeLargestNumbersSimplified(int[] array)
         {
             var results = new int[] { int.MinValue, int.MinValue, int.MinValue};
@@ -62,6 +107,9 @@ namespace C_Sharp.Answers.Sorting
             return shifted;
         }
 
+        #endregion try_two
+
+        #region try_one
         // Time - O(n)   --> one loop n number of iterations
         // Space - O(1)  --> did not use any additional space while processing
         public static int[] FindThreeLargestNumbers(int[] array)
@@ -141,5 +189,7 @@ namespace C_Sharp.Answers.Sorting
             }
             return new int[3] { smallest, mid, largest};
         }
+
+        #endregion try_one
     }
 }
