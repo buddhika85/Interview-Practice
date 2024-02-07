@@ -14,8 +14,56 @@ namespace C_Sharp.Answers.Sorting
         {
             int[] array = new int[] {141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7};
             WriteLine($"{FindThreeLargestNumbers(array).Display(", ")}");
+            WriteLine($"{FindThreeLargestNumbersSimplified(array).Display(", ")}");
         }
 
+        public static int[] FindThreeLargestNumbersSimplified(int[] array)
+        {
+            var results = new int[] { int.MinValue, int.MinValue, int.MinValue};
+            for (int i = 0; i < array.Length; i++)
+            {
+                Shift(results, array[i]);
+            }
+            return results;
+        }
+
+        private static void Shift(int[] results, int value)
+        {
+            if (results[2] < value)
+            {
+                var shifted = Shift(results, 2, value);
+                if (results[1] < shifted)
+                {
+                    shifted = Shift(results, 1, shifted);
+                    if (results[0] < shifted)
+                    {
+                        Shift(results, 0, shifted);
+                    }
+                }
+            }
+            else if (results[1] < value)
+            {
+                var shifted = Shift(results, 1, value);
+                if (results[0] < shifted)
+                {
+                    Shift(results, 0, shifted);
+                }
+            }
+            else if (results[0] < value)
+            {
+                Shift(results, 0, value);
+            } 
+        }
+
+        private static int Shift(int[] results, int index, int value)
+        {
+            var shifted = results[index];
+            results[index] = value;
+            return shifted;
+        }
+
+        // Time - O(n)   --> one loop n number of iterations
+        // Space - O(1)  --> did not use any additional space while processing
         public static int[] FindThreeLargestNumbers(int[] array)
         {
             int largest, mid, smallest = int.MinValue;
