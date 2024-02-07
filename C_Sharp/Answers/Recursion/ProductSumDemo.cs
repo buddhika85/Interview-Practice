@@ -26,6 +26,9 @@ namespace C_Sharp.Answers.Recursion
             return ProductSumHelper(array, 1);
         }
 
+        // Time: O(n)  --> we go though the main array only once and their using recursion we visit even items of sub arrays
+        // Space : O(d)  --> where maximum depth of the main array - since it recursion it will create frames to this d amount 
+        // Space --> as per the test array d will be 3 as that is maximum depth
         private static int ProductSumHelper(List<object> array, int depth)
         {
             var sum = 0;
