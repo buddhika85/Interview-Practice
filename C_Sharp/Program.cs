@@ -99,7 +99,9 @@ internal class Program
         //MinHeightBstDemo.Demo();
 
         //FindTheeLargestDemo.Demo();
-        ProductSumDemo.Demo();
+        //ProductSumDemo.Demo();
+
+        NextGreaterElementDemo.Demo();
     }
 
     private static void TestDLL()
