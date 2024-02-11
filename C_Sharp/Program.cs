@@ -101,7 +101,9 @@ internal class Program
         //FindTheeLargestDemo.Demo();
         //ProductSumDemo.Demo();
 
-        NextGreaterElementDemo.Demo();
+        //NextGreaterElementDemo.Demo();
+
+        PermutationsDemo.Demo();
     }
 
     private static void TestDLL()
