@@ -104,6 +104,7 @@ internal class Program
         //NextGreaterElementDemo.Demo();
 
         PermutationsDemo.Demo();
+        //UnderscorifySubstringDemo.Demo();
     }
 
     private static void TestDLL()
