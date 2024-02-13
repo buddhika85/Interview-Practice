@@ -45,7 +45,7 @@ namespace C_Sharp.Answers.LLs.ShiftLL
             // tackle negetive numbers
             if (k < 0)
             {
-                k = length - k;
+                k = Math.Abs(0 + k);
             }
 
             // find new tail
