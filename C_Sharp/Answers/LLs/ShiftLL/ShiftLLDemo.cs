@@ -19,14 +19,35 @@ namespace C_Sharp.Answers.LLs.ShiftLL
             linkedList.next.next.next.next.next = new(5);
             WriteLine($"{linkedList}");
 
-            var newHead = ShiftLinkedList(linkedList, 2);
+            // var newHead = ShiftLinkedList(linkedList, 2);
+            var newHead = ShiftLinkedList(linkedList, 6);
             WriteLine(newHead);
         }
 
+        // Time: O(n) Space: O(1)
         public static LinkedList ShiftLinkedList(LinkedList head, int k)
         {
+            if (k == 0)
+            {
+                return head;            // nothing to do
+            }          
+
             // find length
             var length = FindLength(head);
+
+            // tackle large numbers
+            k = k % length;
+            if (k == 0)
+            {
+                return head;            // nothing to do
+            }
+
+            // tackle negetive numbers
+            if (k < 0)
+            {
+                k = length - k;
+            }
+
             // find new tail
             var tailIndex = length - k;
             // get tail
