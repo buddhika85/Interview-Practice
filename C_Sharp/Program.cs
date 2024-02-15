@@ -107,7 +107,9 @@ internal class Program
         //PermutationsDemo.Demo();
         //UnderscorifySubstringDemo.Demo();
 
-        ShiftLLDemo.Demo();
+        //ShiftLLDemo.Demo();
+
+        ProductTriplets.Demo();
     }
 
     private static void TestDLL()
