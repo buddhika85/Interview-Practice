@@ -11,19 +11,59 @@ namespace C_Sharp.Answers.Arrays
     {
         public static void Demo()
         {
-            var input = new int[] {1,4,6,2,3,8};
+            var input = new int[] { 1, 4, 6, 2, 3, 8 };
             var target = 24;
+
             List<int[]> triplets = GetProductTriplets(input, target);
-            //List<int[]> triplets = GetProductTripletsOptimal(input, target);
+            Display(triplets);
+
+            WriteLine();
+            triplets = GetProductTripletsOptimal(input, target);
+            Display(triplets);
+        }
+
+        private static void Display(List<int[]> triplets)
+        {
             foreach (var triplet in triplets)
             {
                 WriteLine($"[{triplet.Display(", ")}]");
             }
         }
 
-        private static List<int[]> GetProductTripletsOptimal(int[] input, int target)
+        // Time: O(n)^3 - becuase we used 3 nested loops
+        // Space: O(1) - we did not use any additional data structures
+        private static List<int[]> GetProductTripletsOptimal(int[] array, int target)
         {
-            throw new NotImplementedException();
+            List<int[]> triplets = new List<int[]>();
+
+            Array.Sort(array);      // sort in place - typically quick sort - O(log n)
+            for (int i = 0; i < array.Length - 2; i++)      // last two will be used for other 2 pointers
+            {
+                var start = i + 1;
+                var end = array.Length - 1;
+                while (start < end)
+                {
+                    var product = array[i] * array[start] * array[end];
+                    if (product == target)
+                    {
+                        triplets.Add(new int[] { array[i], array[start], array[end] });
+                        // move both
+                        ++start;
+                        --end;
+                    }
+                    else if (product < target)
+                    {
+                        // make start bigger
+                        ++start;
+                    }
+                    else // if (product > target)
+                    {
+                        // make end smaller
+                        --end;
+                    }
+                }
+            }
+            return triplets;
         }
 
         // Time: O(n)^3 - becuase we used 3 nested loops
@@ -37,10 +77,10 @@ namespace C_Sharp.Answers.Arrays
                 {
                     for (int k = j; k < array.Length; k++)
                     {
-                        if (i != j && j != k && i != k && 
+                        if (i != j && j != k && i != k &&
                             array[i] * array[j] * array[k] == target)
                         {
-                            triplets.Add(new int[] { array[i], array[j], array[k]});
+                            triplets.Add(new int[] { array[i], array[j], array[k] });
                         }
                     }
                 }
