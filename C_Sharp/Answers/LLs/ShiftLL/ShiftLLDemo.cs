@@ -54,9 +54,9 @@ namespace C_Sharp.Answers.LLs.ShiftLL
             LinkedList newTail = GetNthNode(head, tailIndex);
             WriteLine($"Length: {length}, Tail Index: {tailIndex}\n{newTail}");
             // manipulate
-            head = Shift(head, newTail);
+            var newHead = Shift(head, newTail);
             
-            return head;
+            return newHead;
         }
 
         private static LinkedList Shift(LinkedList head, LinkedList newTail)
