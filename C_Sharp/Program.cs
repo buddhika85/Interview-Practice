@@ -19,6 +19,7 @@ using C_Sharp.Answers.Bst.Traversal;
 using C_Sharp.Answers.Bst.ValidateBst;
 using C_Sharp.Answers.Bst.MinHeightBst;
 using C_Sharp.Answers.LLs.ShiftLL;
+using C_Sharp.Answers.Heaps;
 
 internal class Program
 {
@@ -110,7 +111,9 @@ internal class Program
         //ShiftLLDemo.Demo();
         //ShiftDllDemoAnswer.Demo();
 
-        ProductTriplets.Demo();
+        //ProductTriplets.Demo();
+
+        MinHeapDemo.Demo();
     }
 
     private static void TestDLL()
