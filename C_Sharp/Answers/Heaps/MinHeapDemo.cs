@@ -150,7 +150,7 @@ namespace C_Sharp.Answers.Heaps
         {
             var temp = heap[i];
             heap[i] = heap[j];
-            heap[j] =  temp;
+            heap[j] =  temp; 
         }
     }
 }
