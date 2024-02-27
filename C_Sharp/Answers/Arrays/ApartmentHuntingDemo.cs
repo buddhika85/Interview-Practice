@@ -15,7 +15,7 @@ namespace C_Sharp.Answers.Arrays
             {
                 foreach (var item in reqs)
                 {
-                    //if ()
+                    
                 }
                 
             }
