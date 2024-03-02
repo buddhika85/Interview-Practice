@@ -2,6 +2,7 @@
 
 public class ValidateSubSequenceDemo
 {
+    // Time: O(n) n being the length of array | Space: O(1) -> no additional space used
     public static bool IsValidSubsequence(List<int> array, List<int> sequence) 
     {
         if (array.Count < sequence.Count)
