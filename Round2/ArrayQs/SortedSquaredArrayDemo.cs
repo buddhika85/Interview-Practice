@@ -14,4 +14,28 @@ public class SortedSquaredArrayDemo
         return result;  
     }
 
+    public int[] SortedSquaredArrayV2(int[] array) 
+    {
+        int[] result = new int[array.Length];
+        int resultIndex = array.Length - 1;
+        var left = 0;
+        var right = array.Length - 1;
+        while(left <= right)
+        {
+            var leftSqured = array[left] * array[left];
+            var rightSquared = array[right] * array[right];
+            if (leftSqured > rightSquared)
+            {
+                result[resultIndex--] = leftSqured;
+                ++left;
+            }
+            else 
+            {
+                 result[resultIndex--] = rightSquared;
+                --right;
+            }
+        }
+        return result;
+    }
+
 }
