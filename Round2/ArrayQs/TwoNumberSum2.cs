@@ -18,9 +18,11 @@
                 {
                     left++;
                 }
-
-                // found
-                return new int[] { array[left], array[right] };
+                else if (sum == targetSum)
+                {
+                    // found
+                    return new int[] { array[left], array[right] };
+                }
             }
 
             // not found
