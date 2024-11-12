@@ -7,8 +7,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        TestTwoNumberSum();
-        //TestValidateSubsequence2();
+        //TestTwoNumberSum();
+        TestValidateSubsequence2();
     }
 
     private static void TestValidateSubsequence2()
