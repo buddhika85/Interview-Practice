@@ -20,8 +20,8 @@ internal class Program
 
     private static void TestTwoNumberSum()
     {
-        var result = TwoNumberSum3.TwoNumberSum(new int[] { 3, 5, -4, 8, 11, -1, 6 }, 10);
+        //var result = TwoNumberSum3.TwoNumberSum(new int[] { 3, 5, -4, 8, 11, -1, 6 }, 10)
+        var result = TwoNumberSum3.TwoNumberSumDictionary(new int[] { 3, 5, -4, 8, 11, -1, 6 }, 10);
         WriteLine(result.Join<int>(','));
-
     }
 }

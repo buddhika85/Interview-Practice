@@ -25,5 +25,21 @@ namespace Round_2.ArrayQs
             }
             return new int[] { };
         }
+
+
+        public static int[] TwoNumberSumDictionary(int[] array, int targetSum)
+        {
+            // key:how many needed to make sum, value:item
+            Dictionary<int, int> howManyToAdd = new Dictionary<int, int>();
+            foreach (var item in array)
+            {
+                if (howManyToAdd.ContainsKey(item))
+                {
+                    return new int[] { item, howManyToAdd[item] };
+                }
+                howManyToAdd.Add(targetSum - item, item);
+            }
+            return new int[] { };
+        }
     }
 }
