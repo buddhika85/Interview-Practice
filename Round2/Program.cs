@@ -15,7 +15,10 @@ internal class Program
     {
         var array = new List<int> { 5, 1, 22, 25, 6, -1, 8, 10 };
         var sequence = new List<int> { 1, 6, -1, 5 };
-        WriteLine(ValidateSubsequence2.IsValidSubsequence(array, sequence));
+        WriteLine(ValidateSubsequence3.IsValidSubsequence(array, sequence));
+
+        sequence = new List<int> { 1, 6, -1, 10 };
+        WriteLine(ValidateSubsequence3.IsValidSubsequence(array, sequence));
     }
 
     private static void TestTwoNumberSum()
