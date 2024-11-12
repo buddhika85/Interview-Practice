@@ -3,24 +3,24 @@
 public class SortedSquaredArrayDemo
 {
     // TimeL O(n) | Space: O(n)
-    public int[] SortedSquaredArray(int[] array) 
+    public int[] SortedSquaredArray(int[] array)
     {
         var result = new int[array.Length];
         for (int i = 0; i < array.Length; i++)  // O(n)
         {
             result[i] = array[i] * array[i];
-        }  
+        }
         Array.Sort(result);     // quick sort - O(log n)
-        return result;  
+        return result;
     }
 
-    public int[] SortedSquaredArrayV2(int[] array) 
+    public int[] SortedSquaredArrayV2(int[] array)
     {
         int[] result = new int[array.Length];
         int resultIndex = array.Length - 1;
         var left = 0;
         var right = array.Length - 1;
-        while(left <= right)
+        while (left <= right)
         {
             var leftSqured = array[left] * array[left];
             var rightSquared = array[right] * array[right];
@@ -29,13 +29,33 @@ public class SortedSquaredArrayDemo
                 result[resultIndex--] = leftSqured;
                 ++left;
             }
-            else 
+            else
             {
-                 result[resultIndex--] = rightSquared;
+                result[resultIndex--] = rightSquared;
                 --right;
             }
         }
         return result;
     }
 
+    public int[] SortedSquaredArrayV2(int[] sortedArray)
+    {
+        var left = 0;
+        var right = sortedArray.Length - 1;
+        while (left <= right)
+        {
+            var leftSquared = sortedArray[left] * sortedArray[left];
+            var rightSquared = sortedArray[right] * sortedArray[right];
+            if (leftSquared > rightSquared)
+            {
+                sortedArray[right--] = leftSquared;
+                sortedArray[left] = sortedArray[right]; // swap
+            }
+            else
+            {
+                sortedArray[right--] = rightSquared;
+            }
+        }
+        return sortedArray;
+    }
 }
