@@ -38,24 +38,27 @@ public class SortedSquaredArrayDemo
         return result;
     }
 
-    public int[] SortedSquaredArrayV2(int[] sortedArray)
+    public static int[] SortedSquaredArrayV3(int[] sortedArray)
     {
         var left = 0;
         var right = sortedArray.Length - 1;
-        while (left <= right)
+        var result = new int[sortedArray.Length];
+        var resultPointer = right;
+        while (resultPointer >= 0)
         {
-            var leftSquared = sortedArray[left] * sortedArray[left];
-            var rightSquared = sortedArray[right] * sortedArray[right];
-            if (leftSquared > rightSquared)
+            var leftSqured = sortedArray[left] * sortedArray[left];
+            var rightSqured = sortedArray[right] * sortedArray[right];
+            if (leftSqured <= rightSqured)
             {
-                sortedArray[right--] = leftSquared;
-                sortedArray[left] = sortedArray[right]; // swap
+                result[resultPointer--] = rightSqured;              
+                --right;
             }
             else
             {
-                sortedArray[right--] = rightSquared;
+                result[resultPointer--] = leftSqured;
+                ++left;
             }
         }
-        return sortedArray;
+        return result;
     }
 }
