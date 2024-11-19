@@ -10,7 +10,21 @@ internal class Program
     {
         //TestTwoNumberSum();
         //TestValidateSubsequence2();
-        TestSortedSquaredArray();
+        //TestSortedSquaredArray();
+        TestRournamentWinner();
+    }
+
+    private static void TestRournamentWinner()
+    {
+        List<List<string>> competitions = new List<List<string>> 
+        { 
+            new List<string> { "HTML", "C#" },
+            new List<string> { "C#", "Python" },
+            new List<string> { "Python", "HTML" }
+        };
+        List<int> results = new List<int> { 0, 0, 1};  // Python
+        //List<int> results = new List<int> { 0, 1, 1 };      // C#
+        WriteLine(TournamentWinnerDemo.TournamentWinnerOpt(competitions, results));
     }
 
     private static void TestSortedSquaredArray()
