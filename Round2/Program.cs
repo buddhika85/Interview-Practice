@@ -11,7 +11,28 @@ internal class Program
         //TestTwoNumberSum();
         //TestValidateSubsequence2();
         //TestSortedSquaredArray();
-        TestRournamentWinner();
+        //TestRournamentWinner();
+        TestIsMonotonic();
+    }
+
+    private static void TestIsMonotonic()
+    {
+        var array = new[] { -1, -5, -10, -1100, -1100, -1101, -1102, -9001 };
+        var data = new List<(int[], bool)>
+        {
+            (new[] { -1, -5, -10, -1100, -1100, -1101, -1102, -9001 }, true),
+            (new[] { -1, -5, -10, -1100, -1100, -1101, -1102 }, true),
+            (new int[] { }, true),
+            (new[] { 1 }, true),
+            (new[] { 1,2,3,4,5,6,6,7,7,8,8 }, true),
+            (new[] { 1,2,3,4,5,6,6,7,7,8,7 }, false),
+            (new[] { -1, -5, -10, -1100, -1100, -1101, -1102, +9001 }, false),
+        };
+        foreach (var item in data)
+        {
+            WriteLine($"{MonotonicArrayDemo.IsMonotonic(item.Item1)} => did it work? {MonotonicArrayDemo.IsMonotonic(item.Item1) == item.Item2}");
+        }
+
     }
 
     private static void TestRournamentWinner()
