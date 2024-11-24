@@ -12,7 +12,21 @@ internal class Program
         //TestValidateSubsequence2();
         //TestSortedSquaredArray();
         //TestRournamentWinner();
-        TestIsMonotonic();
+        //TestIsMonotonic();
+        TestNonConstructibleChange();
+    }
+
+    private static void TestNonConstructibleChange()
+    {
+        var data = new List<(int[], int)>
+        {
+            (new int[] {1,2,5}, 4),
+            (new int[] {5,7,1,1,2,3,22}, 20)
+        };
+        foreach (var item in data)
+        {
+            WriteLine($"{item.Item1.Join(',')} => did it work? {NonConstructibleChangeDemo.NonConstructibleChange(item.Item1) == item.Item2}");
+        }
     }
 
     private static void TestIsMonotonic()
