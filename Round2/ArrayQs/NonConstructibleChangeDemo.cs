@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Round_2.ArrayQs
+﻿namespace Round_2.ArrayQs
 {
     internal class NonConstructibleChangeDemo
     {
@@ -14,7 +8,7 @@ namespace Round_2.ArrayQs
 
         //[5,7,1,1,2,3,22] => 20
         //[1,1,2,3,5,7,22]
-        public int NonConstructibleChange(int[] coins)
+        public static int NonConstructibleChange(int[] coins)
         {
             Array.Sort(coins);
             var minChange = 0;
