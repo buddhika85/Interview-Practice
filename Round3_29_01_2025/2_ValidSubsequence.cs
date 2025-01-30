@@ -17,7 +17,7 @@
                 }
                 arrayIndex++;
             }
-            return lookingForIndex == array.Count;
+            return lookingForIndex == sequence.Count;
         }
     }
 }
