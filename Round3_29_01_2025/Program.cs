@@ -7,7 +7,14 @@ namespace Round3_29_01_2025
         static void Main(string[] args)
         {
             //Test_1();
-            Test_2();
+            //Test_2();
+            Test_3();
+        }
+
+        private static void Test_3()
+        {
+            var array = new[] { -5, -2, 1, 2, 3 };
+            WriteLine($"Sorted squared array = {_3_SortedSquaredArray.SortedSquaredArray(array).DisplayableString(',')}");
         }
 
         private static void Test_2()

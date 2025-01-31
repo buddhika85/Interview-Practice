@@ -2,7 +2,7 @@
 {
     internal class _3_SortedSquaredArray
     {
-        public int[] SortedSquaredArray(int[] array)
+        public static int[] SortedSquaredArray(int[] array)
         {
             var results = new int[array.Length];
             var left = 0;
