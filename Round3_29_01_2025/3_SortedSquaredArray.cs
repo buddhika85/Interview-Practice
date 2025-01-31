@@ -10,8 +10,8 @@
             var resultsIndex = array.Length - 1;
             while(resultsIndex >= 0)
             {
-                var leftSquared = results[left] * results[left];
-                var rightSquared = results[right] * results[right];
+                var leftSquared = array[left] * array[left];
+                var rightSquared = array[right] * array[right];
                 if (leftSquared > rightSquared)
                 {
                     results[resultsIndex--] = leftSquared;
