@@ -8,7 +8,20 @@ namespace Round3_29_01_2025
         {
             //Test_1();
             //Test_2();
-            Test_3();
+            //Test_3();
+            Test_4();
+        }
+
+        private static void Test_4()
+        {
+            var competitions = new List<List<string>> 
+            { 
+                new List<string> { "HTML", "C#"},                 
+                new List<string> { "C#", "PYTHON"}, 
+                new List<string> { "PYTHON", "HTML" } 
+            };
+            var results = new List<int> { 0, 0, 1 };
+            WriteLine($"Winner = {_4_TournamentWinner.TournamentWinner(competitions, results)}");
         }
 
         private static void Test_3()

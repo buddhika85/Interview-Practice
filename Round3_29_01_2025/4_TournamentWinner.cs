@@ -1,8 +1,8 @@
 ﻿namespace Round3_29_01_2025
 {
-    internal class _4_TournamentWinner
+    internal static class _4_TournamentWinner
     {
-        public string TournamentWinner(List<List<string>> competitions, List<int> results)
+        public static string TournamentWinner(List<List<string>> competitions, List<int> results)
         {
             var i = 0;
             var dictionary = new Dictionary<string, int>();
