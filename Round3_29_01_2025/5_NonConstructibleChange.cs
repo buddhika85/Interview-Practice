@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Round3_29_01_2025
+﻿namespace Round3_29_01_2025
 {
-    internal class _5_NonConstructibleChange
+    internal static class _5_NonConstructibleChange
     {
-        public int NonConstructibleChange(int[] coins)
+        // [1,2,5]
+        public static int NonConstructibleChange(int[] coins)
         {
-            if (coins == null || coins.Length == 0 || coins[1] > 1) 
-                return 1;
-            var lastMadeChange = 1;
-            for (var i = 1; i < coins.Length; i++)
+            Array.Sort(coins);
+
+            var lastMadeChange = 0;
+            foreach (var item in coins)
             {
-                if (coins[i] > ++lastMadeChange)
-                    return lastMadeChange;
+                if (item > lastMadeChange + 1)
+                    return lastMadeChange + 1;
+                lastMadeChange += item;
             }
             return ++lastMadeChange;
         }

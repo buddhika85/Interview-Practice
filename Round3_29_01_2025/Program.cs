@@ -9,7 +9,22 @@ namespace Round3_29_01_2025
             //Test_1();
             //Test_2();
             //Test_3();
-            Test_4();
+            //Test_4();
+            Test_5();
+        }
+
+        private static void Test_5()
+        {
+            var testCases = new List<(int[], int)> 
+            { 
+                (new int[] { 1, 2, 5 }, 4),
+                (new int[] { 5,7,1,1,2,3,22}, 20)
+            };
+            foreach (var testCase in testCases)
+            {
+                WriteLine($"{testCase.Item1.DisplayableString(',')} => " +
+                    $"{_5_NonConstructibleChange.NonConstructibleChange(testCase.Item1)}");
+            }
         }
 
         private static void Test_4()
