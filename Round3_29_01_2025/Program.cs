@@ -10,7 +10,34 @@ namespace Round3_29_01_2025
             //Test_2();
             //Test_3();
             //Test_4();
-            Test_5();
+            //Test_5();
+            Test_6();
+        }
+
+        private static void Test_6()
+        {
+            int[,] twoDArray = { 
+                { 1, 2 }, 
+                { 3, 4 }, 
+                { 5, 6 } 
+            };
+            // 0th Dimension of the array are rows
+            // 1st Dimension of the array are columns
+            WriteLine($"Rows => {twoDArray.GetLength(0)}");
+            WriteLine($"Columns => {twoDArray.GetLength(1)}");
+
+            WriteLine($"array[0,1] => {twoDArray[0, 1]}" );      // 2
+
+            int[,] result = _6_TransposeMatrix.TransposeMatrix(twoDArray);
+
+            //    output = [
+            //    [1,3,5]
+            //    [2,4,6]
+            //]
+            WriteLine($"\nRESULT Rows => {result.GetLength(0)}");
+            WriteLine($"\nRESULT Columns => {result.GetLength(1)}");
+            WriteLine($"{result[0,0]} , {result[0,1]} , {result[0,2]}");      // 1,3,5
+            WriteLine($"{result[1, 0]} , {result[1, 1]} , {result[1, 2]}");     // 2,4,6
         }
 
         private static void Test_5()
