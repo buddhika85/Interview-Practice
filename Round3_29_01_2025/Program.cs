@@ -11,7 +11,16 @@ namespace Round3_29_01_2025
             //Test_3();
             //Test_4();
             //Test_5();
-            Test_6();
+            //Test_6();
+            Test_7();
+        }
+
+        private static void Test_7()
+        {
+            var array = new[] { 5, 1, 4, 2 };
+            //var array = new[] { 0,0,0,0 };
+            var result = _7_ArrayOfProducts.ArrayOfProducts(array);
+            WriteLine($"Array Of Products = {result.DisplayableString(',')}");
         }
 
         private static void Test_6()
