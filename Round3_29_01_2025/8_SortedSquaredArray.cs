@@ -6,7 +6,7 @@
     Write a function that takes this array as an input and returns a new array with the squares of each number sorted in ascending order.
     [-4, -2, 0, 1, 3] => [0, 1, 4, 9, 16]
      */
-    public class _8_SortedSquaredArray
+    public class SortedSquaredArray
     {
         // Time complexity = O(n)   / uses a loop
         // Space complexity = O(n)  / uses an additional array to store results

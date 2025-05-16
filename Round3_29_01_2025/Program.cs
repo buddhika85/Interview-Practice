@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using System.Collections.ObjectModel;
+using static System.Console;
 
 namespace Round3_29_01_2025
 {
@@ -12,7 +13,27 @@ namespace Round3_29_01_2025
             //Test_4();
             //Test_5();
             //Test_6();
-            Test_7();
+            //Test_7();
+            Test_8();
+        }
+
+        private static void Test_8()
+        {
+            var cut = new SortedSquaredArray();
+            var data = new (int[], int[])[] 
+            {
+                ([], []),
+                ([-4, -2, 0, 1, 3], [0, 1, 4, 9, 16]),
+                ([1, 3, 5], [1, 9, 25]),
+                ([0, 5, 6], [0, 25, 36])
+            };
+            foreach (var testCase in data)
+            {
+                if (testCase.Item2.SequenceEqual(cut.GetSortedSquaredArray(testCase.Item1)))
+                {
+                    WriteLine("Pass");
+                }
+            }
         }
 
         private static void Test_7()
