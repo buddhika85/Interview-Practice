@@ -23,17 +23,43 @@
         //          newIndex = newIndex % length
         public int[] GetKRotatedArray(int[] array, int k)
         {
+            if (array.Length == 0 || k == 0)
+                return array;
+
             k = k % array.Length;
             if (k == 0) 
                 return array;
 
-            var result = new int[array.Length];
+            var rotatedArray = new int[array.Length];
             for (int i = 0; i < array.Length; i++)
             {
-                var newIndex = (i + k) % array.Length;
-                result[newIndex] = array[i];
+                var rotatedIndex = (i + k) % array.Length;
+                rotatedArray[rotatedIndex] = array[i];
             }
-            return array;
+            return rotatedArray;
+        }
+
+
+        public void RotateInPlace(int[] array, int k)
+        {
+            if (array.Length == 0 || k == 0)
+                return;
+
+            k = k % array.Length; // Handle cases where k >= array.Length
+
+            Reverse(array, 0, array.Length - 1); // Step 1: Reverse entire array
+            Reverse(array, 0, k - 1);            // Step 2: Reverse first k elements
+            Reverse(array, k, array.Length - 1); // Step 3: Reverse remaining elements
+        }
+
+        private void Reverse(int[] array, int start, int end)
+        {
+            while (start < end)
+            {
+                (array[start], array[end]) = (array[end], array[start]); // Swap elements
+                start++;
+                end--;
+            }
         }
     }
 }
