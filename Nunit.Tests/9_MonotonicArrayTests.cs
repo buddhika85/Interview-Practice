@@ -10,7 +10,7 @@ namespace Nunit.Tests
         [SetUp]
         public void Setup()
         {
-            cut = new MonotonicArray();
+            cut = new MonotonicArray(); // class under test
         }
 
         [Test]
