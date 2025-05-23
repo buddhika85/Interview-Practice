@@ -10,7 +10,8 @@
         // aba, pqr => false
         // ababr, eoeoo => false
         // ababr, pqrqo => false
-
+        // Time = O(n)
+        // Space = O(n)
         public bool IsIsomorphic(string s, string t)
         {
             if (s.Length != t.Length)
