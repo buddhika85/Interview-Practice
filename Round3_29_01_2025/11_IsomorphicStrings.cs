@@ -43,5 +43,33 @@
             }
             return true;
         }
+
+        public bool IsIsomorphic_UsingDictionaryAndSet(string s, string t)
+        {
+            if (s.Length != t.Length)
+                return false;
+
+            Dictionary<char, char> dict = new();
+            HashSet<char> valuesSeen = new();
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (dict.ContainsKey(s[i]))
+                {
+                    if (dict[s[i]] != t[i])
+                        return false;
+                }
+                else
+                {
+                    if (valuesSeen.Contains(t[i]))
+                    {
+                        return false;
+                    }
+
+                    valuesSeen.Add(t[i]);
+                    dict[s[i]] = t[i];
+                }
+            }
+            return true;
+        }
     }
 }
