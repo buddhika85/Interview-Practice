@@ -10,14 +10,38 @@
         // 0 => 0
         // 4 => 3
         // 8 => 21
-        // Space = O(n) - stack space is used for each recursive call. - The maximum depth of recursion is index, meaning the space complexity is O(n)
-        // Time = time complexity is O(2ⁿ), not O(n), because each call spawns two more calls.
 
+
+
+        // Space = O(n) - stack space is used for each recursive call. - The maximum depth of recursion is index, meaning the space complexity is O(n)
+        // Time = time complexity is O(2ⁿ), not O(n), because each call spawns two more calls.        
         public int GetFib(int index)
         {
             if (index == 0 || index == 1)
-                return index;
+                return index;         
             return GetFib(index - 1) + GetFib(index - 2);
+        }
+
+
+
+        // memoization optimization technique used in programming to store previously computed results,
+        // preventing redundant calculations.
+        private Dictionary<int, int> memozationDic = new Dictionary<int, int>();
+
+        // Space = O(n) - uses extra memoory in memozation dictionary
+        // Time = time complexity is O(n)
+        public int GetFibMemoization(int index)
+        {
+            if (index == 0 || index == 1)
+                return index;
+
+            if (memozationDic.TryGetValue(index, out int fibMemorized))           
+                return fibMemorized;
+
+            var fibCalculated = GetFib(index - 1) + GetFib(index - 2);
+            memozationDic[index] = fibCalculated;
+
+            return fibCalculated;
         }
 
     }
