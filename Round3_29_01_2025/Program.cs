@@ -14,7 +14,19 @@ namespace Round3_29_01_2025
             //Test_5();
             //Test_6();
             //Test_7();
-            Test_8();
+            //Test_8();
+            Test_13();
+        }
+
+        private static void Test_13()
+        {
+            WriteLine(new PowerSum().GetPowerSum(new object[]
+            {
+                1,
+                2,
+                new int[] { 3, 4 },
+                new int[][] { new int[] { 2 } }
+            }));
         }
 
         private static void Test_8()
