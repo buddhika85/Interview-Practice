@@ -5,21 +5,23 @@
 
     public class NonRepeatingChar
     {
-        public char FirstNonRepeatingChar(string str)
+        public int FirstNonRepeatingChar(string str)
         {
-            var dict = new Dictionary<char, bool>();
+            var dict = new Dictionary<char, int>();
             foreach (char c in str)
             {
                 if (dict.ContainsKey(c))
-                {
-                    dict.Remove(c);
-                }
+                    dict[c] = ++dict[c];
                 else
-                {
-                    dict.Add(c, true);  
-                }
+                    dict[c] = 1;
             }
-            return dict.FirstOrDefault().Key;
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (dict[str[i]] == 1)
+                    return i;
+            }
+            return -1;
         }
     }
 }
