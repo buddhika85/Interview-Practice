@@ -1,6 +1,4 @@
 ﻿using System.Text;
-using System.Xml.Linq;
-using static System.Reflection.Metadata.BlobBuilder;
 
 internal class Program
 {
@@ -9,7 +7,13 @@ internal class Program
         Console.WriteLine("Welcome to Library App");
 
         var book1 = new Book { Id = 1, Title = "Famouse Five" };
+        book1.Pages.Add(1, "A");
+        book1.Pages.Add(2, "B");
+        book1.Pages.Add(3, "C");
         var book2 = new Book { Id = 2, Title = "Secret Seven" };
+        book2.Pages.Add(1, "AA");
+        book2.Pages.Add(2, "BB");
+        book2.Pages.Add(3, "CC");
 
         User user = new User { Id = 1, Name = "John" };
         user.AddBook(book1);
@@ -21,12 +25,12 @@ internal class Program
         var book3 = user.FindBookByTitle("Famouse Five");
         if (book3 != null)
         {
-            book3.SetLastPageRead(30);
+            book3.SetLastPageRead(2);
             user.SetActiveBook(book3);
         }        
 
         book3 = user.FindBookByTitle("Secret Seven");
-        book3?.SetLastPageRead(40);
+        book3?.SetLastPageRead(1);
        
 
         Console.WriteLine($"\n{user}");
@@ -60,11 +64,20 @@ public class User : BaseEntity
 
 public class Book : BaseEntity
 {    
-    public required string Title { get; set; }
+    public required string Title { get; set; }    
     public int LastPageRead { get; private set; }
+    public Dictionary<int, string> Pages { get; } = new Dictionary<int, string>();
 
     public void SetLastPageRead(int lastPage) => LastPageRead = lastPage;
-    public override string ToString() => $"{Title} Last Page read: {LastPageRead}";
+    public string GetPageContent(int pageNumber)
+    {
+        if (Pages.TryGetValue(pageNumber, out string? pageContent))
+        {
+            return pageContent;
+        }
+        return $"No page with number {pageNumber}";
+    }
+    public override string ToString() => $"{Title} Last Page read: {LastPageRead} {GetPageContent(LastPageRead)}";
 }
 
 public class UserLibrary
