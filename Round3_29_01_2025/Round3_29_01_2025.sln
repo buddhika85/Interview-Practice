@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Round3_29_01_2025", "Round3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nunit.Tests", "..\Nunit.Tests\Nunit.Tests.csproj", "{DC45BCF9-2AFF-401A-B7C0-9AF1B0127249}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_Book_Lib", "..\OOP_Book_Lib\OOP_Book_Lib.csproj", "{BF5E7C6F-7CE3-412F-A12A-AE09BF263235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DC45BCF9-2AFF-401A-B7C0-9AF1B0127249}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC45BCF9-2AFF-401A-B7C0-9AF1B0127249}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC45BCF9-2AFF-401A-B7C0-9AF1B0127249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF5E7C6F-7CE3-412F-A12A-AE09BF263235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5E7C6F-7CE3-412F-A12A-AE09BF263235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5E7C6F-7CE3-412F-A12A-AE09BF263235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5E7C6F-7CE3-412F-A12A-AE09BF263235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
